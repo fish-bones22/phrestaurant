@@ -1,0 +1,724 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"dis",
+				"displayReset"
+			],
+			[
+				"segmen",
+				"segment1"
+			],
+			[
+				"do",
+				"dotIndex"
+			],
+			[
+				"n",
+				"number"
+			],
+			[
+				"add",
+				"addquery"
+			],
+			[
+				"Str",
+				"StringBuilder"
+			],
+			[
+				"prin",
+				"printListObj"
+			],
+			[
+				"word",
+				"wordList"
+			],
+			[
+				"Arra",
+				"Arrays"
+			],
+			[
+				"wor",
+				"wordList"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"out",
+				"output"
+			],
+			[
+				"Strin",
+				"StringBuffer"
+			],
+			[
+				"file",
+				"fileContents"
+			],
+			[
+				"curre",
+				"currency_amount"
+			],
+			[
+				"total",
+				"total_price"
+			],
+			[
+				"loop",
+				"loopDiv\t(?)"
+			],
+			[
+				"cart_",
+				"cart_items"
+			],
+			[
+				"pro",
+				"Product"
+			],
+			[
+				"print",
+				"printList"
+			],
+			[
+				"line",
+				"lineBuffer"
+			],
+			[
+				"ali",
+				"align-content"
+			],
+			[
+				"search",
+				"search_term"
+			],
+			[
+				"ser",
+				"search_term"
+			],
+			[
+				"tbl_",
+				"tbl_dev_info"
+			],
+			[
+				"tbl",
+				"tbl_user"
+			],
+			[
+				"opt",
+				"option\tTag"
+			],
+			[
+				"user_",
+				"user_id"
+			],
+			[
+				"prod",
+				"prod_id"
+			],
+			[
+				"has",
+				"has_upload"
+			],
+			[
+				"produ",
+				"product"
+			],
+			[
+				"tble",
+				"tbl_dev_info"
+			],
+			[
+				"app",
+				"approval_class"
+			],
+			[
+				"resu",
+				"result"
+			],
+			[
+				"time",
+				"timestamp"
+			],
+			[
+				"file_",
+				"file_loc"
+			],
+			[
+				"err",
+				"errors"
+			],
+			[
+				"inpu",
+				"input\tTag"
+			],
+			[
+				"tim",
+				"timestamp"
+			],
+			[
+				"icon",
+				"icon_location"
+			],
+			[
+				"gl",
+				"glob"
+			],
+			[
+				"form",
+				"form-group"
+			],
+			[
+				"for",
+				"form-control"
+			],
+			[
+				"Boot",
+				"BootState\tfn "
+			],
+			[
+				"enc",
+				"enc1"
+			],
+			[
+				"sol",
+				"solenoidLow"
+			],
+			[
+				"solen",
+				"solenoidHigh"
+			],
+			[
+				"pr",
+				"print"
+			],
+			[
+				"left",
+				"leftSensor"
+			],
+			[
+				"stop",
+				"stopDuration"
+			],
+			[
+				"Print",
+				"PrintHead"
+			],
+			[
+				"sp",
+				"spinSpeed"
+			],
+			[
+				"session",
+				"session_destroy"
+			],
+			[
+				"conso",
+				"console"
+			],
+			[
+				"cha",
+				"chatboxHtml\t(str)"
+			],
+			[
+				"fr",
+				"friendName\t? "
+			],
+			[
+				"rece",
+				"receiverName\t(?)"
+			],
+			[
+				"rec",
+				"receiver\t(?)"
+			],
+			[
+				"frie",
+				"friendId\t(?)"
+			],
+			[
+				"res",
+				"response\t? "
+			],
+			[
+				"_REQ",
+				"_REQUEST"
+			],
+			[
+				"user",
+				"userid"
+			],
+			[
+				"stat",
+				"status"
+			],
+			[
+				"friendna",
+				"friendname"
+			],
+			[
+				"friend",
+				"friendid"
+			],
+			[
+				"in",
+				"input\tTag"
+			],
+			[
+				"hea",
+				"header"
+			],
+			[
+				"sess",
+				"session_start"
+			],
+			[
+				"co",
+				"conn"
+			],
+			[
+				"fun",
+				"fun\tfunction …"
+			],
+			[
+				"spr",
+				"spritePaddle"
+			],
+			[
+				"padd",
+				"paddle"
+			],
+			[
+				"paddleHitP",
+				"paddleHitPaddle"
+			],
+			[
+				"te",
+				"textScore"
+			],
+			[
+				"hi",
+				"highscore"
+			],
+			[
+				"Hi",
+				"hiscore"
+			],
+			[
+				"text",
+				"textStart"
+			],
+			[
+				"textS",
+				"textSubtitle"
+			],
+			[
+				"h",
+				"Highscore"
+			],
+			[
+				"ce",
+				"centerX"
+			],
+			[
+				"po",
+				"powerUpSpacerCounter"
+			],
+			[
+				"power",
+				"powerUpSpacer"
+			],
+			[
+				"pad",
+				"paddle"
+			],
+			[
+				"rese",
+				"resetPaddle"
+			],
+			[
+				"paddl",
+				"paddle"
+			],
+			[
+				"spri",
+				"spritePower"
+			],
+			[
+				"spriteP",
+				"spritePower"
+			],
+			[
+				"gam",
+				"gameWidth\tnum "
+			],
+			[
+				"textLiv",
+				"textLives\t{} "
+			],
+			[
+				"tex",
+				"textLives"
+			],
+			[
+				"sprit",
+				"spriteBall"
+			],
+			[
+				"bric",
+				"brickPrefabs"
+			],
+			[
+				"ballHit",
+				"ballHitBrick"
+			],
+			[
+				"brick",
+				"brickPrefabs"
+			],
+			[
+				"phys",
+				"Physics"
+			],
+			[
+				"spre",
+				"spriteBall\t{} "
+			],
+			[
+				"p",
+				"paddle"
+			],
+			[
+				"ini",
+				"initialBounce\tnum "
+			],
+			[
+				"sprite",
+				"spriteBall\t(?)"
+			],
+			[
+				"ball",
+				"ballHasLaunched\t(bool)"
+			],
+			[
+				"bal",
+				"ballHasLaunched\t(bool)"
+			],
+			[
+				"P",
+				"Physics"
+			],
+			[
+				"w",
+				"width"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "package",
+		"selected_items":
+		[
+			[
+				"package",
+				"Preferences: Browse Packages"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 480.0
+	},
+	"console":
+	{
+		"height": 200.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/xampp/htdocs/phrestaurant"
+	],
+	"file_history":
+	[
+		"/C/Users/Sammy/Documents/Arduino/BraillePrinterLibraries/PaperFeeder.h",
+		"/C/Users/Sammy/Documents/Arduino/BraillePrinterLibraries/PaperFeeder.cpp",
+		"/C/Users/Sammy/Downloads/Aseprite-DarkFlat-Theme-master.zip",
+		"/D/Projects/CFM/Documentations/Database Update and Test_04.03.18/Database Updates/Remove_Items_To_Group.sql",
+		"/D/Projects/CFM/Documentations/Database Update and Test_04.03.18/Database Updates/Modify_Store_Profile_Table.sql",
+		"/D/Projects/CFM/Documentations/Database Update and Test_04.03.18/Database Updates/Modify_Group_Table.sql",
+		"/C/xampp/htdocs/WebApp/php/serviceFunctions/deleteEntry.php",
+		"/C/xampp/htdocs/WebApp/tryView.php",
+		"/C/xampp/htdocs/landslide/php/objects/objUser.php",
+		"/C/xampp/htdocs/WebApp/datatables",
+		"/C/xampp/htdocs/WebApp/php/functions/view.php",
+		"/C/xampp/htdocs/WebApp/php/functions/add.php",
+		"/C/xampp/htdocs/WebApp/php/serviceFunctions/viewEntries.php",
+		"/C/xampp/htdocs/WebApp/php/functions/update.php",
+		"/C/xampp/htdocs/WebApp/php/functions/dbconnect.php",
+		"/C/xampp/htdocs/WebApp/php/serviceFunctions/addValue.php",
+		"/C/xampp/htdocs/constants.php",
+		"/C/xampp/htdocs/WebApp/constants.php",
+		"/C/xampp/htdocs/WebApp/tryadd.html",
+		"/C/xampp/htdocs/chatroom/php/dbconnect.php",
+		"/C/xampp/htdocs/landslide/php/helper-functions/add-user.php",
+		"/C/Users/Sammy/Documents/School/Seminars/WebApp/php/functions/add.php",
+		"/C/Users/Sammy/Documents/School/Seminars/WebApp/php/serviceFunctions/addValue.php",
+		"/C/Users/Sammy/Documents/School/Seminars/WebApp/constants.php",
+		"/C/Users/Sammy/Documents/School/Seminars/WebApp/php/functions/update.php",
+		"/C/Users/Sammy/Documents/School/Seminars/WebApp/php/functions/dbconnect.php",
+		"/C/Users/Sammy/Documents/School/Seminars/WebApp/tryadd.html",
+		"/C/Users/Sammy/Documents/School/Seminars/WebApp/php/constants.php",
+		"/C/xampp/htdocs/landslide/php/helper-functions/addcurrency.php",
+		"/C/xampp/htdocs/landslide/php/dbconnect.php",
+		"/C/Users/Sammy/Documents/School/Thesis/Program/BQRTranslator.java",
+		"/C/Users/Sammy/Documents/Arduino/BraillePrinter/BraillePrinter.ino",
+		"/C/Program Files (x86)/Arduino/libraries/PaperFeeder/src/PaperFeeder.cpp",
+		"/C/Program Files (x86)/Arduino/libraries/PaperFeeder/src/PaperFeeder.h",
+		"/D/Projects/CFM/CFMMCD/CFMMCD/Generators/TextGenerator.cs",
+		"/C/Users/Sammy/Desktop/sample.html",
+		"/C/Users/Sammy/Source/Workspaces/CFMMCD/CFMMCD/Views/Shared/_Layout.cshtml",
+		"/D/Projects/CFM/CFMMCD/CFMMCD/Scripts/confirm.js",
+		"/C/Users/Sammy/Downloads/multilevelDropdown.html",
+		"/D/Projects/CFM/CFMMCD/CFMMCD/Views/MenuItemMaster/Index.cshtml",
+		"/C/Users/Sammy/Downloads/bootstrap-4.0.0-beta.2-dist (1)/js/bootstrap.js",
+		"/C/xampp/htdocs/landslide/db/db_avalanche_store.sql",
+		"/D/Projects/CFM/Database Schema/ModifyAuditLogTable/ModifyAuditLog.sql",
+		"/C/Users/Sammy/Source/Workspaces/CFMMCD/CFMMCD/CFMMCD.sln",
+		"/C/Users/Sammy/Source/Workspaces/CFMMCD/CFMMCD.sln",
+		"/D/Projects/CFM/CFMMCD/CFMMCD/Controllers/MenuItemMasterController.cs",
+		"/D/Projects/RestaurantTransactionSystem/RestaurantTransactionSystem/Web/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+		"/C/Users/Sammy/Downloads/eShopOnWeb-master/src/Web/Controllers/AccountController.cs",
+		"/C/xampp/htdocs/landslide/about.php",
+		"/C/Program Files (x86)/Arduino/libraries/PrintHead/src/PrintHead.cpp",
+		"/C/Program Files (x86)/Arduino/libraries/PrintHead/src/PrintHead.h",
+		"/D/Projects/CFM/CFMMCD/CFMMCD/Scripts/bootstrap.js",
+		"/D/Projects/CFM/CFMMCD/CFMMCD/Scripts/philippines/index.js",
+		"/D/Projects/CFM/CFMMCD/CFMMCD/Scripts/philippines/index_v2.js",
+		"/C/xampp/htdocs/platform-prototype/js/main.js",
+		"/D/Projects/CFM/CFMMCD/CFMMCD/Scripts/philippines/philippines.js",
+		"/C/altera/13.0sp1/SingleCycleMips/memfile2.dat",
+		"/C/Users/Sammy/Desktop/SingleCycle-MIPS-Processor-master/testbench.v",
+		"/C/Users/Sammy/Desktop/SingleCycle-MIPS-Processor-master/test/lab3-test.dis",
+		"/C/altera/13.0sp1/memfile.dat",
+		"/C/Users/Sammy/Desktop/sincycv/memfile.dat",
+		"/C/Users/Sammy/Desktop/SingleCycle-MIPS-Processor-master/async_memory.v",
+		"/C/altera/13.0sp1/mips.vhd",
+		"/C/Users/Sammy/Downloads/MIPS-master (3)/simulation/MIPs_TOP.vt",
+		"/C/Users/Sammy/Downloads/MIPS-master (3)/simulation/text_Test.dat",
+		"/C/Users/Sammy/Desktop/SingleCycle-MIPS-Processor-master/test/inst_rom.memh",
+		"/C/Users/Sammy/Downloads/SingleCycle-MIPS-Processor-master/async_memory.v",
+		"/C/Users/Sammy/Desktop/sincyc/sincyc.sv",
+		"/C/Users/Sammy/Downloads/SingleCycle-MIPS-Processor-master/test/data_ram0.memh",
+		"/C/Users/Sammy/Desktop/SingleCycle-MIPS-Processor-master/test/data_ram3.memh",
+		"/C/Users/Sammy/Desktop/SingleCycle-MIPS-Processor-master/test/data_ram2.memh",
+		"/C/Users/Sammy/Desktop/SingleCycle-MIPS-Processor-master/test/data_ram1.memh",
+		"/C/Users/Sammy/Desktop/SingleCycle-MIPS-Processor-master/test/data_ram0.memh",
+		"/C/Users/Sammy/Desktop/SingleCycle-MIPS-Processor-master/test/lab3-test.spim.s",
+		"/C/Users/Sammy/Downloads/eShopOnWeb-master/src/Infrastructure/Data/CatalogContext.cs",
+		"/C/Users/Sammy/Downloads/eShopOnWeb-master/src/Web/appsettings.json",
+		"/C/Users/Sammy/Downloads/eShopOnWeb-master/src/Web/Startup.cs",
+		"/C/Users/Sammy/Downloads/eShopOnWeb-master/src/Infrastructure/Data/CatalogContextSeed.cs",
+		"/F/DP Team Graduate/DesignProject/index.html",
+		"/C/xampp/htdocs/landslide/topdf/checkout-landing.php",
+		"/C/Users/Sammy/Downloads/.ptmp747996/SamsungAlgoChallenge/Java/Dota.java",
+		"/C/Users/Sammy/AppData/Local/Temp/fz3temp-2/img.png",
+		"/C/Users/Sammy/Documents/School/Thesis/Program/LinuxScripts/PrintLanguageConverter.java",
+		"/C/Users/Sammy/Documents/School/Thesis/Program/Translator/BQRTranslator.java",
+		"/C/Users/Sammy/Documents/School/Thesis/Program/LinuxScripts/convertToPrintLang.py",
+		"/C/Users/Sammy/Documents/School/Thesis/Program/LinuxScripts/printList.py",
+		"/C/Users/Sammy/Documents/School/Thesis/Program/Translator/OutputText.txt",
+		"/C/xampp/htdocs/landslide/php/objects/objProduct.php",
+		"/C/xampp/htdocs/landslide/admin.php",
+		"/C/xampp/htdocs/landslide/js/main.js",
+		"/C/xampp/htdocs/landslide/footer.php",
+		"/C/xampp/htdocs/landslide/index.php",
+		"/C/xampp/htdocs/landslide/php/helper-functions/removetocart.php",
+		"/C/xampp/htdocs/landslide/css/style.css",
+		"/C/xampp/htdocs/landslide/checkout.php",
+		"/C/xampp/htdocs/landslide/php/objects/objTransaction.php",
+		"/C/xampp/htdocs/landslide/php/helper-functions/checkout.php",
+		"/C/xampp/htdocs/landslide/php/objects/objCart.php",
+		"/C/xampp/htdocs/landslide/checkout-landing.php",
+		"/C/xampp/htdocs/landslide/js/addToCart.js",
+		"/C/xampp/htdocs/landslide/product.php",
+		"/C/xampp/htdocs/landslide/navbar.php",
+		"/C/xampp/htdocs/landslide/php/helper-functions/addtocart.php",
+		"/C/xampp/htdocs/chatroom/friend.php",
+		"/C/xampp/htdocs/chatroom/js/chatbox.js",
+		"/C/xampp/htdocs/chatroom/php/fetch_chat.php",
+		"/C/xampp/htdocs/chatroom/start.php",
+		"/C/xampp/htdocs/chatroom/php/send.php",
+		"/C/xampp/htdocs/landslide/css/footer.css",
+		"/C/Users/Sammy/Downloads/BQRTranslator/BQRTranslator.java",
+		"/C/Users/Sammy/AppData/Local/Temp/fz3temp-2/img076_enhanced.jpg",
+		"/C/Users/Sammy/AppData/Local/Temp/fz3temp-2/convertToPrintLang.py",
+		"/C/xampp/htdocs/landslide/product-drawer.php",
+		"/C/xampp/htdocs/landslide/dev-dashboard.php",
+		"/C/xampp/htdocs/landslide/dev-dashboard-add.php",
+		"/C/xampp/htdocs/landslide/js/rating.min.js",
+		"/C/xampp/htdocs/landslide/php/objects/objDeveloper.php",
+		"/C/xampp/htdocs/landslide/php/helper-functions/dev-add-product.php",
+		"/C/xampp/htdocs/chatroom/php/add.php",
+		"/C/xampp/htdocs/chatroom/php/authentication.php",
+		"/C/xampp/htdocs/landslide/product-files/zip/dfsdf_Dev Name.zip",
+		"/C/xampp/htdocs/chatroom/php/login.php",
+		"/C/xampp/htdocs/chatroom/search-result.php",
+		"/C/xampp/htdocs/landslide/php/dev-add-product.php",
+		"/C/xampp/htdocs/landslide/vendors/bootstrap/js/popper.min.js",
+		"/C/xampp/htdocs/dashboard/index.html",
+		"/C/Program Files (x86)/Arduino/libraries/Motor/src/Motor.h",
+		"/C/Program Files (x86)/Arduino/libraries/Motor/src/Motor.cpp"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 70.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "phrestaurant.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\Sammy\\Documents\\Unity\\GameIdea_1\\Assets\\Resources\\spells.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 232.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
