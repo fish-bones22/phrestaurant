@@ -1,9 +1,7 @@
 <?php
 
-echo "string";
-
-require_once 'db_connect.php';
-require_once '../object/User.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/functions/db_connect.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/User.php';
 
 $user = $_REQUEST["username"];
 $password = $_REQUEST["password"];

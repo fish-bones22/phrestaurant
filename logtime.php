@@ -1,3 +1,16 @@
+<?php
+
+require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/User.php';
+
+if (!isset($_REQUEST["id"]))
+	header("Location: logtime_verify.php?err");
+
+$id = $_REQUEST["id"];
+$user = User::getUser($id);
+$lastLogType = $user->lastLogType;
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +20,24 @@
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<form action="php/functions/get_log_status.php" method="post">
+	<div class="h2">Hi <?php echo $user->firstName ?></div>
+	<form action="php/functions/log_time.php" method="post">
 		<div class="form-group">
-			<input type="text" name="username" class="form-control" placeholder="Username" />
-			<input type="password" name="password" class="form-control" placeholder="Password" />
-			<input type="submit" value="Check" class="btn btn-primary" />
+			<input type="hidden" name="log_type" value="<?php echo $lastLogType ?>">
+			<input type="hidden" name="user" value="<?php echo $user->userId ?>">
+
+			<?php 
+				if ($lastLogType == 0) {
+			?>
+				<input type="submit" value="Log In" class="btn btn-primary" />
+			<?php 
+				} else {
+			?>
+				<div class="h4">You have logged in at <?php echo $user->lastLogTime ?></div>
+				<input type="submit" value="Log Out" class="btn btn-primary" />
+			<?php 
+				}
+			?>
 		</div>
 	</form>
 
