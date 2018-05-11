@@ -1,14 +1,17 @@
+<?php 
+
+session_start();
+
+require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Cashier Menu</title>
 </head>
 <body>
-	<?php 
-		session_start();
-
-		require_once 'php/objProduct.php';
-	?>
 
 <div class="container menu col-md-6">
 	<?php

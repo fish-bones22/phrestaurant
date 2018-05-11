@@ -7,6 +7,7 @@
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+	<?php include_once 'navbar.php'; ?>
 	<div class="container">
 		<div class="h1">Menu Item</div>
 
@@ -25,6 +26,7 @@
 
 
 	<script src="vendors/jquery/jquery.min.js"></script>
+	<script src="vendors/bootstrap/js/popper.min.js"></script>
 	<script src="vendors/bootstrap/js/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
 </body>

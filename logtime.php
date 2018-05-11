@@ -9,10 +9,10 @@ if (!isset($_REQUEST["id"])) {
 
 $token =  hash('ripemd160', date("YmdHis"));
 
-// if ($token != $_REQUEST["token"]) {
-// 	header("Location: logtime_verify.php?err");
-// 	exit();
-// }
+if ($token != $_REQUEST["token"]) {
+	header("Location: logtime_verify.php?err");
+	exit();
+}
 
 
 $id = $_REQUEST["id"];
@@ -61,6 +61,7 @@ $lastLogType = $user->lastLogType;
 
 	<script src="vendors/jquery/jquery.min.js"></script>
 	<script src="vendors/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendors/bootstrap/js/popper.min.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>
