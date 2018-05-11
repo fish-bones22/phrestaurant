@@ -18,7 +18,7 @@
         	<div class="dropdown-menu" aria-labelledby="navbarDropdown">
         		<a class="dropdown-item" href="menulist.php">Menu</a>
           	<a class="dropdown-item" href="categories.php">Categories</a>
-            <a class="dropdown-item" href="transactions.php">Transactions</a>
+            <a class="dropdown-item" href="users.php">Users</a>
        		</div>
      	  </li>
       		

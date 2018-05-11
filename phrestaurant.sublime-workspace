@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"form-",
+				"form-group"
+			],
+			[
+				"onke",
+				"onkeyup\tAttr"
+			],
+			[
+				"USER",
+				"user"
+			],
+			[
+				"cate",
+				"categoryIds"
+			],
+			[
+				"categ",
+				"categoryIds"
+			],
+			[
+				"new",
+				"new_category"
+			],
+			[
+				"ac",
+				"action\tAttr"
+			],
+			[
 				"btn-",
 				"btn-block"
 			],
@@ -14,10 +42,6 @@
 			[
 				"add",
 				"add_query"
-			],
-			[
-				"cate",
-				"categories"
 			],
 			[
 				"last",
@@ -435,15 +459,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "menulist.php",
-			"settings":
-			{
-				"buffer_size": 975,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -490,25 +505,41 @@
 	"expanded_folders":
 	[
 		"/C/xampp/htdocs/phrestaurant",
+		"/C/xampp/htdocs/phrestaurant/js",
 		"/C/xampp/htdocs/phrestaurant/php",
-		"/C/xampp/htdocs/phrestaurant/php/functions",
-		"/C/xampp/htdocs/phrestaurant/php/objects"
+		"/C/xampp/htdocs/phrestaurant/php/functions"
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/phrestaurant/.git/config",
-		"/C/xampp/htdocs/phrestaurant/php/functions/update_menu.php",
+		"/C/xampp/htdocs/phrestaurant/js/usermaster.js",
+		"/C/xampp/htdocs/phrestaurant/php/functions/delete_menu.php",
+		"/C/xampp/htdocs/phrestaurant/php/functions/delete_user.php",
+		"/C/xampp/htdocs/phrestaurant/users.php",
+		"/C/xampp/htdocs/phrestaurant/usermaster.php",
 		"/C/xampp/htdocs/phrestaurant/php/objects/User.php",
-		"/C/xampp/htdocs/phrestaurant/php/functions/log_time.php",
+		"/C/xampp/htdocs/phrestaurant/js/users.js",
+		"/C/xampp/htdocs/phrestaurant/php/functions/update_user.php",
+		"/C/xampp/htdocs/phrestaurant/menulist.php",
+		"/C/xampp/htdocs/phrestaurant/menumaster.php",
+		"/C/xampp/htdocs/phrestaurant/navbar.php",
 		"/C/xampp/htdocs/phrestaurant/logtime_verify.php",
+		"/C/xampp/htdocs/phrestaurant/php/objects/Category.php",
+		"/C/xampp/htdocs/phrestaurant/categories.php",
+		"/C/xampp/htdocs/phrestaurant/js/menulist.js",
+		"/C/xampp/htdocs/phrestaurant/js/categories.js",
+		"/C/xampp/htdocs/phrestaurant/php/functions/delete_category.php",
+		"/C/xampp/htdocs/phrestaurant/php/functions/update_categories.php",
+		"/C/xampp/htdocs/phrestaurant/cashier.php",
+		"/C/xampp/htdocs/phrestaurant/menu.php",
+		"/C/xampp/htdocs/phrestaurant/index.php",
 		"/C/xampp/htdocs/phrestaurant/logtime.php",
+		"/C/xampp/htdocs/phrestaurant/php/functions/update_menu.php",
+		"/C/xampp/htdocs/phrestaurant/.git/config",
+		"/C/xampp/htdocs/phrestaurant/php/functions/log_time.php",
 		"/C/Users/Sammy/Downloads/resto/resto/php/objUser.php",
 		"/C/Users/Sammy/Downloads/resto/resto_db (1).sql",
-		"/C/xampp/htdocs/phrestaurant/menumaster.php",
 		"/C/xampp/htdocs/phrestaurant/php/objects/Product.php",
-		"/C/xampp/htdocs/phrestaurant/menulist.php",
 		"/C/xampp/htdocs/phrestaurant/php/functions/get_log_status.php",
-		"/C/xampp/htdocs/phrestaurant/php/objects/Category.php",
 		"/C/Users/Sammy/Downloads/resto/resto/menu.php",
 		"/C/xampp/htdocs/phrestaurant/php/functions/get_log_type.php",
 		"/C/xampp/htdocs/phrestaurant/php/functions/check_user.php",
@@ -520,7 +551,6 @@
 		"/C/xampp/htdocs/landslide/about.php",
 		"/C/xampp/htdocs/phrestaurant/js/main.js",
 		"/C/xampp/htdocs/phrestaurant/css/main.css",
-		"/C/xampp/htdocs/phrestaurant/index.php",
 		"/C/xampp/htdocs/landslide/php/dbconnect.php",
 		"/C/Users/Sammy/Documents/Arduino/BraillePrinterLibraries/PaperFeeder.h",
 		"/C/Users/Sammy/Documents/Arduino/BraillePrinterLibraries/PaperFeeder.cpp",
@@ -608,26 +638,11 @@
 		"/C/Users/Sammy/Documents/School/Thesis/Program/LinuxScripts/printList.py",
 		"/C/Users/Sammy/Documents/School/Thesis/Program/Translator/OutputText.txt",
 		"/C/xampp/htdocs/landslide/php/objects/objProduct.php",
-		"/C/xampp/htdocs/landslide/admin.php",
-		"/C/xampp/htdocs/landslide/js/main.js",
-		"/C/xampp/htdocs/landslide/footer.php",
-		"/C/xampp/htdocs/landslide/index.php",
-		"/C/xampp/htdocs/landslide/php/helper-functions/removetocart.php",
-		"/C/xampp/htdocs/landslide/css/style.css",
-		"/C/xampp/htdocs/landslide/checkout.php",
-		"/C/xampp/htdocs/landslide/php/objects/objTransaction.php",
-		"/C/xampp/htdocs/landslide/php/helper-functions/checkout.php",
-		"/C/xampp/htdocs/landslide/checkout-landing.php",
-		"/C/xampp/htdocs/landslide/js/addToCart.js",
-		"/C/xampp/htdocs/landslide/product.php",
-		"/C/xampp/htdocs/landslide/navbar.php",
-		"/C/xampp/htdocs/landslide/php/helper-functions/addtocart.php",
-		"/C/xampp/htdocs/chatroom/friend.php",
-		"/C/xampp/htdocs/chatroom/js/chatbox.js"
+		"/C/xampp/htdocs/landslide/admin.php"
 	],
 	"find":
 	{
-		"height": 247.0
+		"height": 29.0
 	},
 	"find_in_files":
 	{
@@ -641,6 +656,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"product",
 			"\t\t\t<div class=\"h1\">Daily Time Record</div>\n\t\t\t\t<div class=\"h3\">Enter your credentials</div>\n\t\t\t\t<form action=\"php/functions/get_log_status.php\" method=\"post\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<input type=\"text\" name=\"username\" class=\"form-control\" placeholder=\"Username\" />\n\t\t\t\t\t\t<input type=\"password\" name=\"password\" class=\"form-control\" placeholder=\"Password\" />\n\t\t\t\t\t\t<input type=\"submit\" value=\"Check\" class=\"btn btn-primary\" />\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>",
 			")",
 			"("
@@ -651,6 +667,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"user",
 			"]",
 			"["
 		],
@@ -663,38 +680,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "menulist.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 975,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								711,
-								711
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 162.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -737,7 +724,7 @@
 	"project": "phrestaurant.sublime-project",
 	"replace":
 	{
-		"height": 468.0
+		"height": 114.0
 	},
 	"save_all_on_build": true,
 	"select_file":

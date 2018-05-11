@@ -17,10 +17,10 @@
 						<div class="lead">To Log In or Log Out</div>
 					</div>
 					<div class="form-group">
-						<input type="text" name="username" class="form-control" placeholder="Username" />
+						<input type="text" name="username" class="form-control" placeholder="Username" required/>
 					</div>
 					<div class="form-group">
-						<input type="password" name="password" class="form-control" placeholder="Password" />
+						<input type="password" name="password" class="form-control" placeholder="Password" required/>
 					</div>
 					<div class="btn-group float-right">
 						<input type="submit" value="Check" class="btn btn-primary" />

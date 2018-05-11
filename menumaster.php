@@ -35,12 +35,12 @@ if (isset($_REQUEST["id"]))
 					<input type="hidden" name="menu_id" value="<?php echo $menu->id ?>" />
 					<div class="form-group">
 						<label for="menu-name">Menu Name</label>
-						<input type="text" id="menu-name" name="menu_name" value="<?php echo $menu->name ?>" class="form-control" />
+						<input type="text" id="menu-name" name="menu_name" value="<?php echo $menu->name ?>" class="form-control" required/>
 					</div>
 
 					<div class="form-group">
 						<label for="menu-category">Menu Category</label>
-						<select id="menu-category" name="menu_category" class="form-control" value="<?php echo $menu->category ?>">
+						<select id="menu-category" name="menu_category" class="form-control" value="<?php echo $menu->category ?>" required>
 							<option value=""></option>
 						<?php
 						if ($categories != null) {
@@ -68,13 +68,13 @@ if (isset($_REQUEST["id"]))
 							<div class="col">
 								<div class="form-group">
 									<label for="menu-price">Price</label>
-									<input type="number" id="menu-price" name="menu_price" value="<?php echo $menu->price ?>" class="form-control" />
+									<input type="number" id="menu-price" name="menu_price" value="<?php echo $menu->price ?>" class="form-control" required/>
 								</div>
 							</div>
 							<div class="col">
 								<div class="form-group">
 									<label for="menu-quantity">Quantity</label>
-									<input type="number" id="menu-quantity" name="menu_quantity" value="<?php echo $menu->quantity ?>" class="form-control" />
+									<input type="number" id="menu-quantity" name="menu_quantity" value="<?php echo $menu->quantity ?>" class="form-control" required/>
 								</div>
 							</div>
 						</div>

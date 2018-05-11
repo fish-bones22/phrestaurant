@@ -70,6 +70,38 @@ class User
 	}
 
 
+	static function getAllUsers() {
+
+		$db = getDb();
+
+		$select_query = "SELECT *, DATE_FORMAT(dtr_table.log_timestamp, '%h:%m %p, %b %d, %Y') as formatted_time, user_table.user_id as user_id
+			FROM user_table 
+			LEFT JOIN dtr_table ON user_table.user_id = dtr_table.user_id
+			GROUP BY user_table.user_id
+			ORDER BY dtr_table.log_id DESC;";
+
+		$result = mysqli_query($db, $select_query);
+
+		mysqli_close($db);
+
+		if (!$result || $result->num_rows <= 0)
+			return null;
+
+		$users = [];
+
+		while ($row = mysqli_fetch_array($result)) {
+
+			$user = new User(); 
+			$user->setValuesByArray($row);
+			$users[] = $user;
+
+		} 
+
+		return $users;
+
+	}
+
+
 	static function userLogIn($username, $password) {
 
 		if ($password == null) return false;
@@ -97,7 +129,7 @@ class User
 
 	}
 
-	function registerToDatabase() {
+	function addToDatabase() {
 		
 		// If user is already defined. Use update instead.
 		if ($this->id != null && $this->id != 0) return false;
@@ -111,27 +143,24 @@ class User
 		 user_first_name,
 		 user_last_name) 
 		VALUES 
-		('$this->name', 
+		('$this->username', 
 		 '$this->password',	
 		 '$this->isAdmin',	
-		 '$this->fname',	
-		 '$this->lname');";
+		 '$this->firstName',	
+		 '$this->lastName');";
 
-		$result = mysqli_query($db, $select_query);
+		$result = mysqli_query($db, $add_query);
 
 		mysqli_close($db);
 
 		if (!$result) return false;
-
-		$user_name = $this->name;
-		$this->id = User::getUserByUserName($username)->id;
 
 		return true;
 
 	}
 
 
-	function userUpdate() {
+	function updateUser() {
 		
 		// If user is not defined. Use register instead.
 		if ($this->id == null || $this->id == 0) return false;
@@ -139,9 +168,11 @@ class User
 		$db = getDb();
 
 		$update_query = "UPDATE user_table SET
-		user_name = '$this->name',
-		user_first_name = '$this->fname',
-		user_last_name = '$this->lname' WHERE user_id = '$this->id';";
+		user_name = '$this->username',
+		user_password = '$this->password',
+		user_first_name = '$this->firstName',
+		isAdmin = '$this->isAdmin',
+		user_last_name = '$this->lastName' WHERE user_id = '$this->id';";
 
 		$result = mysqli_query($db, $update_query);
 
