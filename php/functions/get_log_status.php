@@ -10,10 +10,10 @@ $userId = User::checkUser($user, $password);
 
 if ($userId < 0) {
 	header("Location:../../logtime_verify.php?err");
-	exit();
 }
 
-header("Location:../../logtime.php?id=$userId");
-exit();
+$token =  hash('ripemd160', date("YmdHis"));
+
+header("Location:../../logtime.php?id=".$userId."&token=".$token);
 
 ?>
