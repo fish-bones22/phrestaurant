@@ -27,8 +27,10 @@ $menus = Product::getAllMenu();
 				foreach($menus as $menu) {
 				?>
 
-				<div class="">
-					<a href="menumaster.php?id=<?php echo $menu->name ?>"><?php echo $menu->name ?></a>
+				<div class="row">
+					<div class="col-8">
+						<a href="menumaster.php?id=<?php echo $menu->name ?>"><?php echo $menu->name ?></a>
+					</div>
 				</div>
 
 				<?php
