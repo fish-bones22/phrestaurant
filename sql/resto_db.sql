@@ -1,19 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Generation Time: May 12, 2018 at 05:17 PM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 7.0.9
-=======
--- Generation Time: May 11, 2018 at 04:56 PM
+-- Generation Time: May 12, 2018 at 07:31 PM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
->>>>>>> 377aa7bf304abc25c3392a6345ca4bbac8942ec1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -38,26 +34,6 @@ CREATE TABLE `category_table` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `category_table`
---
-
-INSERT INTO `category_table` (`category_id`, `category_name`, `timestamp`) VALUES
-<<<<<<< HEAD
-(1, 'Burger', '2018-05-10 17:35:18'),
-(2, 'Fingertips', '2018-05-10 17:35:18'),
-(3, 'Pasta', '2018-05-10 17:35:18'),
-(4, 'Premium', '2018-05-10 17:35:18'),
-(5, 'Healthy', '2018-05-10 17:35:18');
-=======
-(1, 'Burger', '2018-05-11 10:25:49'),
-(2, 'Pasta', '2018-05-11 10:25:52'),
-(3, 'Fingertips', '2018-05-11 10:26:19'),
-(4, 'Dessert', '2018-05-11 10:26:23'),
-(5, 'Premium', '2018-05-11 10:26:06'),
-(6, 'Healthy', '2018-05-11 10:26:00');
->>>>>>> 377aa7bf304abc25c3392a6345ca4bbac8942ec1
-
 -- --------------------------------------------------------
 
 --
@@ -67,31 +43,10 @@ INSERT INTO `category_table` (`category_id`, `category_name`, `timestamp`) VALUE
 CREATE TABLE `dtr_table` (
   `log_id` int(50) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `time_in_timestamp` timestamp NULL DEFAULT NULL,
-  `time_out_timestamp` timestamp NULL DEFAULT NULL,
-  `logged_in` int(11) NOT NULL
+  `log_timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `log_type` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-<<<<<<< HEAD
-=======
---
--- Dumping data for table `dtr_table`
---
-
-INSERT INTO `dtr_table` (`log_id`, `user_id`, `log_timestamp`, `log_type`) VALUES
-(9, 0, '2018-05-10 17:14:41', 1),
-(10, 1, '2018-05-10 17:17:10', 1),
-(11, 1, '2018-05-10 17:17:17', 0),
-(12, 1, '2018-05-10 17:17:22', 1),
-(13, 1, '2018-05-10 17:17:27', 0),
-(14, 1, '2018-05-11 07:28:57', 1),
-(22, 1, '2018-05-11 08:22:01', 0),
-(23, 1, '2018-05-11 08:23:25', 1),
-(24, 1, '2018-05-11 09:07:42', 0),
-(25, 1, '2018-05-11 09:10:09', 1),
-(26, 1, '2018-05-11 10:30:22', 0);
-
->>>>>>> 377aa7bf304abc25c3392a6345ca4bbac8942ec1
 -- --------------------------------------------------------
 
 --
@@ -113,21 +68,11 @@ CREATE TABLE `inventory_table` (
 CREATE TABLE `menu_table` (
   `menu_id` int(11) NOT NULL,
   `menu_name` varchar(50) NOT NULL,
-<<<<<<< HEAD
-  `menu_price` int(11) NOT NULL,
+  `menu_price` double NOT NULL,
   `menu_quantity` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   `menu_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `menu_table`
---
-
-INSERT INTO `menu_table` (`menu_id`, `menu_name`, `menu_price`, `menu_quantity`, `category_id`, `menu_timestamp`) VALUES
-(1, 'Burger1', 50, 11, 1, '2018-05-10 17:33:25'),
-(2, 'Pasta1', 99, 11, 3, '2018-05-10 17:40:02'),
-(3, 'Fingertips', 55, 11, 2, '2018-05-10 17:43:25');
 
 -- --------------------------------------------------------
 
@@ -140,17 +85,8 @@ CREATE TABLE `order_table` (
   `order_id` int(11) NOT NULL,
   `menu_id` int(11) NOT NULL,
   `order_quantity` int(11) NOT NULL,
-  `order_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `order_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `order_table`
---
-
-INSERT INTO `order_table` (`table_order_id`, `order_id`, `menu_id`, `order_quantity`, `order_timestamp`) VALUES
-(11, 2, 3, 1, '2018-05-12 15:17:20'),
-(12, 2, 2, 1, '2018-05-12 15:17:21'),
-(13, 2, 1, 1, '2018-05-12 15:17:22');
 
 -- --------------------------------------------------------
 
@@ -159,40 +95,11 @@ INSERT INTO `order_table` (`table_order_id`, `order_id`, `menu_id`, `order_quant
 --
 
 CREATE TABLE `transaction_table` (
-  `transaction_id` int(50) NOT NULL,
+  `transaction_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `order_id` varchar(50) NOT NULL,
-  `transaction_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `order_id` int(11) NOT NULL,
+  `transaction_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `transaction_table`
---
-
-INSERT INTO `transaction_table` (`transaction_id`, `user_id`, `order_id`, `transaction_timestamp`) VALUES
-(1, 1, '1', '2018-05-12 15:14:09'),
-(2, 1, '1', '2018-05-12 15:14:09'),
-(3, 1, '1', '2018-05-12 15:15:15'),
-(4, 1, '1', '2018-05-12 15:15:15'),
-(5, 1, '1', '2018-05-12 15:15:21'),
-(6, 1, '1', '2018-05-12 15:15:21'),
-(7, 1, '1', '2018-05-12 15:17:16'),
-(8, 1, '1', '2018-05-12 15:17:16');
-=======
-  `menu_price` double NOT NULL,
-  `menu_quantity` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
-  `menu_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `menu_table`
---
-
-INSERT INTO `menu_table` (`menu_id`, `menu_name`, `menu_price`, `menu_quantity`, `category_id`, `menu_timestamp`) VALUES
-(4, 'Hundred Islands Salad', 75, 10, 5, '2018-05-11 08:52:06'),
-(6, 'Hawaiian Burger', 100, 10, 1, '2018-05-11 09:21:16');
->>>>>>> 377aa7bf304abc25c3392a6345ca4bbac8942ec1
 
 -- --------------------------------------------------------
 
@@ -211,17 +118,6 @@ CREATE TABLE `user_table` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
-<<<<<<< HEAD
-=======
--- Dumping data for table `user_table`
---
-
-INSERT INTO `user_table` (`user_id`, `user_name`, `user_password`, `isAdmin`, `user_first_name`, `user_last_name`, `user_timestamp`) VALUES
-(1, 'samuel', '1234', 0, 'Samuel', 'Quinto', '2018-05-11 14:39:13'),
-(7, 'hazel', '1234', 1, 'Hazel', 'Noceja', '2018-05-11 14:53:41');
-
---
->>>>>>> 377aa7bf304abc25c3392a6345ca4bbac8942ec1
 -- Indexes for dumped tables
 --
 
@@ -275,20 +171,12 @@ ALTER TABLE `user_table`
 -- AUTO_INCREMENT for table `category_table`
 --
 ALTER TABLE `category_table`
-<<<<<<< HEAD
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-=======
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
->>>>>>> 377aa7bf304abc25c3392a6345ca4bbac8942ec1
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `dtr_table`
 --
 ALTER TABLE `dtr_table`
-<<<<<<< HEAD
-  MODIFY `log_id` int(50) NOT NULL AUTO_INCREMENT;
-=======
-  MODIFY `log_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
->>>>>>> 377aa7bf304abc25c3392a6345ca4bbac8942ec1
+  MODIFY `log_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `inventory_table`
 --
@@ -298,31 +186,23 @@ ALTER TABLE `inventory_table`
 -- AUTO_INCREMENT for table `menu_table`
 --
 ALTER TABLE `menu_table`
-<<<<<<< HEAD
-  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `order_table`
 --
 ALTER TABLE `order_table`
-  MODIFY `table_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `table_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `transaction_table`
 --
 ALTER TABLE `transaction_table`
-  MODIFY `transaction_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-=======
-  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
->>>>>>> 377aa7bf304abc25c3392a6345ca4bbac8942ec1
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `user_table`
 --
 ALTER TABLE `user_table`
-<<<<<<< HEAD
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
-=======
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;COMMIT;
 
->>>>>>> 377aa7bf304abc25c3392a6345ca4bbac8942ec1
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -25,6 +25,9 @@
 					<div class="btn-group float-right">
 						<input type="submit" value="Check" class="btn btn-primary" />
 					</div>
+					<div class="">
+						<a href="loghistory.php">Log history</a>
+					</div>
 				</form>
 			</div>
 		</div>

@@ -102,7 +102,7 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 
 		$result = $db->query($select_query);
 
-		echo '<table>';
+		if ($result)
 	    while($row = $result->fetch_assoc()) {
         echo '<tr>'
         		.'<td><button onclick="deleteItem(this)" data-id="'.$row["table_order_id"].'">DELETE</button></td>'

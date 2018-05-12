@@ -38,8 +38,8 @@ $lastLogType = $user->lastLogType;
 
 				<form action="php/functions/log_time.php" method="post">
 					<div class="form-group">
-						<input type="hidden" name="log_type" value="<?php echo $lastLogType ?>">
-						<input type="hidden" name="user" value="<?php echo $user->id ?>">
+						<input type="hidden" name="log_type" value='<?php echo $lastLogType ?>' />
+						<input type="hidden" name="user" value='<?php echo $id ?>' />
 
 						<?php 
 							if ($lastLogType == 0) {

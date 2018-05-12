@@ -3,7 +3,7 @@ function orderButtonSelected(self) {
 	var oaction = "addUpdate";
 	$.ajax({
 		type: "post",	
-		url: "php/Order.php",
+		url: "php/functions/order.php",
 		data: {
 			id:oid, 
 			action:oaction
@@ -20,7 +20,7 @@ function deleteItem(self) {
 	var oaction = "deleteItem";
 	$.ajax({
 		type: "post",
-		url: "php/Order.php",
+		url: "php/functions/order.php",
 		data: {
 			id:oid,
 			action:oaction
@@ -53,7 +53,7 @@ function checkOutLogin() {
 	var password = $("#checkPassword").val();
 	$.ajax({
 		type: "post",
-		url: "php/Order.php",
+		url: "php/functions/order.php",
 		data: {
 			action:oaction,
 			user:username,
@@ -70,7 +70,7 @@ function showOrderlist() {
 	var oaction = "showOrder";
     $.ajax({
 		type: "post",
-        url: 'php/Order.php',
+		url: "php/functions/order.php",
         data: {
 			action:oaction
 		},
@@ -83,7 +83,7 @@ function showOrderlist() {
 }
 
 function loadlink(){
-    $('#orderBox').load('php/Order.php',function () {
+    $('#orderBox').load('php/functions/order.php',function () {
          $(this).unwrap();
     });
 }

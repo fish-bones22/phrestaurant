@@ -44,7 +44,8 @@ class User
 
 		$db = getDb();
 
-		$select_query = "SELECT *, DATE_FORMAT(dtr_table.log_timestamp, '%h:%m %p, %b %d, %Y') as formatted_time
+		$select_query = "SELECT *, DATE_FORMAT(dtr_table.log_timestamp, '%h:%m %p, %b %d, %Y') as formatted_time,
+			user_table.user_id as user_id
 			FROM user_table 
 			LEFT JOIN dtr_table ON user_table.user_id = dtr_table.user_id
 			WHERE user_table.user_id = $id
@@ -93,7 +94,7 @@ class User
 
 			$user = new User(); 
 			$user->setValuesByArray($row);
-			$users[] = $user;
+			$users[$user->id] = $user;
 
 		} 
 
