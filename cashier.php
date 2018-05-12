@@ -17,29 +17,45 @@ $menu = Product::getAllMenu();
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 <body>
 
+	<?php
+		include_once 'navbar.php';
+	?>
+
 	<div class="container">
+
+		<div class="h2">Take Orders</div>
 		<div class="row">
 			<div class="col">
-			<?php
-			if(!$menu) {
-				echo "No Menu Items Found";
-			} else {
 
-				foreach ($menu as $product) {
-				?>
-				<div class="menu_item">
-					<button onclick="orderButtonSelected(this)" class="btn btn-light item_menu" type="button" name="button" data-id="<?php echo $product->id ?>">
-						<?php echo $product->name ?>
-						<?php echo $product->price ?>
-						<?php echo $product->quantity ?>
-					</button>
-				</div>
+				<table class="table table-sm" id="menu-box">
+					<thead>
+						<th>Cat</th>
+						<th>Menu</th>
+						<th>Price</th>
+						<th>Avail Qty</th>
+					</thead>
+					<tbody>
+						
+					<?php
+					foreach ($menu as $product) {
+						// Shorten names
+						$cat = strlen($product->categoryName) > 4 ? substr($product->categoryName, 0, 4) : $product->categoryName;
+						$menuName = strlen($product->name) > 25 ? substr($product->name, 0, 22)."..." : $product->name;
+					?>
+					<tr class="menu_item">
+						<td><?php echo  $cat ?></td>
+						<td>
+							<button onclick="orderButtonSelected(this)" class="btn btn-light btn-block item_menu" type="button" name="button" data-id="<?php echo $product->id ?>"><?php echo $menuName ?></button>
+						</td>
+						<td><?php echo $product->price ?></td>
+						<td><?php echo $product->quantity ?></td>
+					</tr>
+					<?php
+					}
+					?>
 
-				<?php
-				}
-			}
-
-			?>
+					</tbody>
+				</table>
 			</div>
 			<div class="col">
 				<div class="orderBox" name="orderBox" id="orderBox">
@@ -48,45 +64,56 @@ $menu = Product::getAllMenu();
 							<tr>
 								<th>Menu</th>
 								<th>Quantity</th>
+								<th>Price</th>
 								<th></th>
 							</tr>
 						</thead>
 						<tbody id="order-list">
-							
+							<tr><td class="text-muted">Select Menu from the left side</td></tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
 		</div>
+
+		<div class="row">
+			<div class="col">
+				<div class="btn-group float-right">
+					<button class="btn btn-primary" id="check-out-btn" data-toggle="modal" data-target="#verify-account-modal">Check Out</button>
+				</div>
+			</div>
+		</div>
+
 	</div>
 
-	<div>
-		<!--
-		eto yung modal
-		-->
-		<form>
-			<div>
-				<label>UserName:</label>
-				<input type="text" name="username" id="checkUsername">
-			</div>
-			<div>
-				<label>Password:</label>
-				<input type="password" name="password" id="checkPassword">
-			</div>
-			<div>
-				<button onclick="checkOutLogin()">Confirm</button>
-			</div>
-		</form>
-	</div>
 
-	<div>
-		<button onclick="alert('Eto dapat lalabas modal ')">Check Out</button>
+	<div id="verify-account-modal" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="lead">Please verify your account</div>
+					<button class="close" data-dismiss="modal">&times</button>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<input class="form-control form-control-sm" type="text" name="username" id="checkUsername" placeholder="Username">
+					</div>
+					<div class="form-group">
+						<input class="form-control form-control-sm" type="password" name="password" id="checkPassword" placeholder="Password">
+					</div>
+					<div class="btn-group float-right">
+						<button class="btn btn-primary" onclick="checkOutLogin()">Confirm</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 
 	<script src="vendors/jquery/jquery.min.js"></script>
 	<script src="vendors/bootstrap/js/popper.min.js"></script>
 	<script src="vendors/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendors/datatables/js/datatables.min.js"></script>
 	<script src="js/cashier.js"></script>
 
 </body>

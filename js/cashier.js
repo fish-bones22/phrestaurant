@@ -53,6 +53,7 @@ function checkOutLogin() {
 	var oaction = "checkOutLogin";
 	var username = $("#checkUsername").val();
 	var password = $("#checkPassword").val();
+
 	$.ajax({
 		type: "post",
 		url: "php/functions/order.php",
@@ -87,9 +88,17 @@ function updateOrderList(array) {
 	
 	$("#order-list").html("");
 
-	if (array.length <= 0)
+	if (array.length <= 0) {
+		var tr = document.createElement("tr");
+		var td = document.createElement("td");
+		td.className = "text-muted";
+		td.appendChild(document.createTextNode("Select Menu from the left."));
+		tr.appendChild(td);
+		$("#order-list").append(tr);
 		return;
+	}
 	
+	var totalPr = 0;
 
 	for (var i = 0; i < array.length ; i++) {
 		console.log(array[i]);
@@ -97,8 +106,9 @@ function updateOrderList(array) {
 		var tr = document.createElement("tr");
 
 		// Create table data for menu name
+		var menuName = array[i].menu_name.length > 25 ? array[i].menu_name.substring(0, 22) + "..." : array[i].menu_name;
 		var tdMenu = document.createElement("td");
-		tdMenu.appendChild(document.createTextNode(array[i].menu_name));
+		tdMenu.appendChild(document.createTextNode(menuName));
 		tr.appendChild(tdMenu);
 
 		// Create table data for quantity
@@ -106,14 +116,24 @@ function updateOrderList(array) {
 		tdQuan.appendChild(document.createTextNode(array[i].order_quantity));
 		tr.appendChild(tdQuan);
 
+		// Create table data for quantity
+		var tdPrice = document.createElement("td");
+		var price = array[i].order_quantity * array[i].menu_price;
+		totalPr += price;
+		tdPrice.appendChild(document.createTextNode(price));
+		tr.appendChild(tdPrice);
+
 		// Create table data for delete button
 		var tdDelete = document.createElement("td");
 		  // Create button
 		var btn = document.createElement("button");
+		  // Add text on button
 		btn.appendChild(document.createTextNode("×"));
 		btn.className = "close";
+		  // Add data attr on button
 		btn.setAttribute('data-id', array[i].table_order_id);
 		btn.onclick = function() { 
+		  // Add onclick on button
 			var orderId = $(this).data('id');
 			deleteItem(orderId);
 		};
@@ -123,6 +143,8 @@ function updateOrderList(array) {
 
 		$("#order-list").append(tr);
 	}
+
+	$("#order-list").append("<tr><th>Total:</th><td></td><th> " + totalPr + "</this></tr>");
 
 }
 
@@ -136,6 +158,7 @@ function updateOrderList(array) {
 $(document).ready(function() {
 
 	showOrderlist(); // This will run on page load
+	$("#menu-box").DataTable();
 
 	//intv = setInterval(showOrderlist, 5000);
 

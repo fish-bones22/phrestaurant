@@ -9,6 +9,7 @@
 		public $price;
 		public $quantity;
 		public $category;
+		public $categoryName;
 		public $timestamp;
 
 		function setValues($name, $price, $quantity, $category) {
@@ -24,6 +25,7 @@
 			$this->price = $menu_array["menu_price"];
 			$this->quantity = $menu_array["menu_quantity"];
 			$this->category = $menu_array["category_id"];
+			$this->categoryName = $menu_array["category_name"];
 			$this->timestamp = $menu_array["menu_timestamp"];
 		}
 
@@ -113,7 +115,9 @@
 
 			$db = getDb();
 
-			$select_query = "SELECT * FROM menu_table ORDER BY category_id";
+			$select_query = "SELECT * FROM menu_table 
+			INNER JOIN category_table ON menu_table.category_id = category_table.category_id
+			ORDER BY menu_table.category_id";
 
 			$result = mysqli_query($db, $select_query);
 
@@ -140,7 +144,9 @@
 
 			$db = getDb();
 
-			$select_query = "SELECT * FROM menu_table WHERE menu_id = '$id';";
+			$select_query = "SELECT * FROM menu_table
+			INNER JOIN category_table ON menu_table.category_id = category_table.category_id
+			WHERE menu_id = '$id';";
 
 			$result = mysqli_query($db, $select_query);
 
