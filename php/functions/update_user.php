@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/functions/db_connect.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/User.php';
 
@@ -43,6 +43,7 @@ else {
 
 	$user->addToDatabase();
 	header("Location:../../users.php?succ");
+	session_unset($_SESSION["user"]);
 	exit();
 }
 

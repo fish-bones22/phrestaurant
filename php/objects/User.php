@@ -108,7 +108,7 @@ class User
 
 		$db = getDb();
 
-		$select_query = "SELECT *, DATE_FORMAT(user_table.timestamp, '%b %d, %Y') as user_timestamp FROM user_table WHERE user_name = '".$username."' AND user_password = '".$password."';";
+		$select_query = "SELECT *, DATE_FORMAT(user_table.user_timestamp, '%b %d, %Y') as formatted_time FROM user_table WHERE user_name = '".$username."' AND user_password = '".$password."';";
 
 		$result = mysqli_query($db, $select_query);
 
@@ -218,6 +218,24 @@ class User
 
 		if (!$result)
 			return -1;
+
+		while ($row = mysqli_fetch_array($result))
+			return $row["user_id"];
+
+	}	
+
+
+	public static function checkUsername($username) {
+
+		$db = getDb();
+
+		$query = "SELECT `user_id` FROM `user_table` WHERE `user_name` = '$username';";
+		$result = mysqli_query($db, $query);
+
+		mysqli_close($db);
+
+		if (!$result)
+			return '0';
 
 		while ($row = mysqli_fetch_array($result))
 			return $row["user_id"];

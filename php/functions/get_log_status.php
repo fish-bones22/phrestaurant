@@ -8,8 +8,9 @@ $password = $_REQUEST["password"];
 
 $userId = User::checkUser($user, $password);
 
-if ($userId < 0) {
+if ($userId <= 0) {
 	header("Location:../../logtime_verify.php?err");
+	exit();
 }
 
 $token =  hash('ripemd160', date("YmdHis"));

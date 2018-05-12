@@ -1,6 +1,7 @@
 <?php
 
 require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
+include_once 'alert.php';
 
 // Get current menu information if it exists
 $menus = Product::getAllMenu();
@@ -24,6 +25,15 @@ $menus = Product::getAllMenu();
 
 			<div class="col-md-6 offset-md-3">
 				<div class="h1">Menu Items</div>
+
+				<?php 
+				if (isset($_REQUEST["succ"])) {
+					showAlert(1, "Operation successful");
+				} else if (isset($_REQUEST["err"])) {
+					showAlert(2, "Operation failed");
+				} 
+				?>
+
 
 				<?php
 				if ($menus != null)

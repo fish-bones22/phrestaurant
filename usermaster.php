@@ -1,7 +1,12 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["user"])) {
+	header("Location:error.php");
+}
 
 require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/User.php';
-
+include_once 'alert.php';
 
 // Get current menu information if it exists
 $user = new User();
@@ -28,16 +33,25 @@ if (isset($_REQUEST["id"]))
 			<div class="col-md-6 offset-md-3">
 				<div class="h1">User</div>
 
+				<?php 
+				if (isset($_REQUEST["succ"])) {
+					showAlert(1, "Operation successful");
+				} else if (isset($_REQUEST["err"])) {
+					showAlert(2, "Operation failed");
+				} 
+				?>
+
+
 				<form action="php/functions/update_user.php" method="post">
 					<input type="hidden" name="user_id" value="<?php echo $user->id ?>" />
 					<div class="form-group">
 						<label for="username">Username</label>
-						<input type="text" id="username" name="username" value="<?php echo $user->username ?>" class="form-control" required/>
+						<input type="text" id="username" name="username" value="<?php echo $user->username ?>" class="form-control" onchange="checkUsername()" required/>
 					</div>
 
 					<div class="form-group">
 						<label for="password">Password</label>
-						<input type="password" id="password" name="password" onkeyup="checkPasswordMatched()" value="<?php echo $user->password ?>" class="form-control" required/>
+						<input type="password" id="password" name="password" onchange="checkPasswordMatched()" value="<?php echo $user->password ?>" class="form-control" required/>
 					</div>
 
 					<div class="form-group">

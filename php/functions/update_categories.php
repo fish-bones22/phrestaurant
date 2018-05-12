@@ -22,7 +22,7 @@ if (isset($_REQUEST["categoryId"]) && isset($_REQUEST["categoryName"])) {
 
 }
 
-if (isset($_REQUEST["new_category"])) {
+if (isset($_REQUEST["new_category"]) && $_REQUEST["new_category"] != "") {
 
 	$newCategory = $_REQUEST["new_category"];
 

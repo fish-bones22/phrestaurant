@@ -1,9 +1,19 @@
 <?php
+session_start();
 
 require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/User.php';
+include_once 'alert.php';
 
 // Get current menu information if it exists
 $users = User::getAllUsers();
+
+$token =  hash('ripemd160', date("YmdHi"));
+if (!isset($_REQUEST["token"]) || $token != $_REQUEST["token"]) {
+	header("Location:adminverify.php?page=".basename(__FILE__, '.php'));
+	exit();
+}
+
+$_SESSION["user"] = 1;
 
 ?>
 
@@ -24,6 +34,14 @@ $users = User::getAllUsers();
 
 			<div class="col-md-6 offset-md-3">
 				<div class="h1">Users</div>
+
+				<?php 
+				if (isset($_REQUEST["succ"])) {
+					showAlert(1, "Operation successful");
+				} else if (isset($_REQUEST["err"])) {
+					showAlert(2, "Operation failed");
+				} 
+				 ?>
 
 				<?php
 				if ($users != null)

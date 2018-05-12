@@ -2,6 +2,7 @@
 
 require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Category.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
+include_once 'alert.php';
 
 // Get cateogories
 $categories = Category::getCategories();
@@ -30,6 +31,14 @@ if (isset($_REQUEST["id"]))
 
 			<div class="col-md-6 offset-md-3">
 				<div class="h1">Menu Item</div>
+
+				<?php 
+				if (isset($_REQUEST["succ"])) {
+					showAlert(1, "Operation successful");
+				} else if (isset($_REQUEST["err"])) {
+					showAlert(2, "Operation failed");
+				} 
+				 ?>
 
 				<form action="php/functions/update_menu.php" method="post">
 					<input type="hidden" name="menu_id" value="<?php echo $menu->id ?>" />

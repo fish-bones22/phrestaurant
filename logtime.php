@@ -53,6 +53,7 @@ $lastLogType = $user->lastLogType;
 						<?php 
 							}
 						?>
+						<a href="logtime_verify.php" class="btn btn-sm btn-block btn-secondary">Back</a>
 					</div>
 				</form>
 			</div>

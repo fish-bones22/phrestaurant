@@ -1,6 +1,7 @@
 <?php
 
 require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Category.php';
+include_once 'alert.php';
 
 $categories = Category::getCategories();
 
@@ -23,6 +24,15 @@ $categories = Category::getCategories();
 			<div class="row">
 				<div class="col-md-4 offset-md-4">
 					<div class="h1">Categories</div>
+
+					<?php 
+					if (isset($_REQUEST["succ"])) {
+						showAlert(1, "Operation successful");
+					} else if (isset($_REQUEST["err"])) {
+						showAlert(2, "Operation failed");
+					} 
+					?>
+
 
 					<div class="row">
 						<div class="col-9"><strong>Name</strong></div>
