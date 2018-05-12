@@ -1,3 +1,7 @@
+<?php 
+include_once 'alert.php';
+ ?>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +20,13 @@
 						<div class="display-4">Enter your credentials</div>
 						<div class="lead">To Log In or Log Out</div>
 					</div>
+					<?php 
+					if (isset($_REQUEST["succ"])) {
+						showAlert(1, "Operation successful");
+					} else if (isset($_REQUEST["err"])) {
+						showAlert(2, "Operation failed");
+					} 
+					?>
 					<div class="form-group">
 						<input type="text" name="username" class="form-control" placeholder="Username" required/>
 					</div>

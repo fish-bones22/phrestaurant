@@ -14,6 +14,7 @@ $menus = Product::getAllMenu();
 	<title>Menu Items</title>
 	<link rel="stylesheet" href="fonts/Font-Awesome/css/font-awesome.css">
 	<link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="vendors/datatables/css/datatables.min.css" rel="stylesheet" type="text/css">
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -35,30 +36,42 @@ $menus = Product::getAllMenu();
 				?>
 
 
-				<?php
-				if ($menus != null)
-				foreach($menus as $menu) {
-				?>
+				<table class="table table-sm" id="menu-table">
+					<thead>
+						<th>Menu</th>
+						<th></th>
+					</thead>
+					<tbody>						
+					<?php
+					if ($menus != null)
+					foreach($menus as $menu) {
+					?>
 
-				<div class="row">
-					<div class="col-8">
-						<a href="menumaster.php?id=<?php echo $menu->id ?>"><?php echo $menu->name ?></a>
-					</div>
-					<button type="button" onclick="deleteMenu(<?php echo $menu->id ?>)" data-toggle="modal" data-target="#confirm-modal" class="btn close">&times</button>
-				</div>
+					<tr>
+						<td class="col-8">
+							<a href="menumaster.php?id=<?php echo $menu->id ?>"><?php echo $menu->name ?></a>
+						</td>
+						<td>
+							<button type="button" onclick="deleteMenu(<?php echo $menu->id ?>)" data-toggle="modal" data-target="#confirm-modal" class="close">&times</button>
+						</td>
+					</tr>
 
-				<?php
-				}
-				else {
-				?>
-				<div class="text-muted">No Menus yet.</div>
-				<?php
-				}// end if-else
-				?>
+					<?php
+					}
+					else {
+					?>
+					<tr><td colspan='2' class="text-muted">No Menus yet.</td></tr>
+					<?php
+					}// end if-else
+					?>
 
-				<div class="row align-items-center">
-					<a href="menumaster.php">+ New Menu</a>
-				</div>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="2"><a href="menumaster.php" class="btn btn-block btn-light">+ New Menu</a></td>
+						</tr>
+					</tfoot>
+				</table>
 			</div>
 		</div>
 	</div>
@@ -83,6 +96,7 @@ $menus = Product::getAllMenu();
 	<script src="vendors/jquery/jquery.min.js"></script>
 	<script src="vendors/bootstrap/js/popper.min.js"></script>
 	<script src="vendors/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendors/datatables/js/datatables.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/menulist.js"></script>
 

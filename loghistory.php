@@ -22,6 +22,7 @@ $logs = Log::getLogs();
 				<table class="table table-sm" id="log-table">
 					<thead>
 						<tr>
+							<th>#</th>
 							<th>Name</th>
 							<th>Log in</th>
 							<th>Log out</th>
@@ -35,6 +36,7 @@ $logs = Log::getLogs();
 							foreach ($logs as $log) {
 						?>
 							<tr>
+								<td><?php echo $log->id ?></td>
 								<td><?php echo $log->name ?></td>
 								<td><?php echo $log->login ?></td>
 								<td><?php echo $log->logout ?></td>

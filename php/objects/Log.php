@@ -8,6 +8,7 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/User.php';
  */
 class Log
 {
+	public $id;
 	public $name;
 	public $login;
 	public $logout;
@@ -17,7 +18,7 @@ class Log
 
 		$db = getDb();
 		$query = "SELECT *, 
-		DATE_FORMAT(dtr_table.log_timestamp, '%h:%m %p') as formatted_time, 
+		DATE_FORMAT(dtr_table.log_timestamp, '%h:%i %p') as formatted_time, 
 		DATE_FORMAT(dtr_table.log_timestamp, '%b %d, %Y') as formatted_date
 		FROM dtr_table 
 		WHERE log_type = 1;";
@@ -36,14 +37,19 @@ class Log
 			$id = $row['log_id'];
 			$user = $row['user_id'];
 
+			if (!array_key_exists($user, $users)) {
+				continue;
+			}
+
 			$log = new Log();
 
+			$log->id = $row['log_id'];
 			$log->name = $users[$user]->firstName." ".$users[$user]->lastName;
 			$log->date = $row['formatted_date'];
 			$log->login = $row['formatted_time'];
 
 			$query2 = "SELECT *, 
-			DATE_FORMAT(dtr_table.log_timestamp, '%h:%m %p') as formatted_time, 
+			DATE_FORMAT(dtr_table.log_timestamp, '%h:%i %p') as formatted_time, 
 			DATE_FORMAT(dtr_table.log_timestamp, '%b %d, %Y') as formatted_date
 			FROM dtr_table 
 			WHERE log_type = 0
