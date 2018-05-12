@@ -32,20 +32,20 @@ function deleteItem(self) {
 	});
 }
 
-function checkOutOrder() {
-	var oaction = "checkOut";
-	$.ajax({
-		type: "post",
-		url: "php/Order.php",
-		data: {
-			action:oaction
-		},
-		datatype: "json",
-		success: function(data){
-			console.log(data);
-		}
-	});
-}
+// function checkOutOrder() {
+// 	var oaction = "checkOut";
+// 	$.ajax({
+// 		type: "post",
+// 		url: "php/Order.php",
+// 		data: {
+// 			action:oaction
+// 		},
+// 		datatype: "json",
+// 		success: function(data){
+// 			console.log(data);
+// 		}
+// 	});
+// }
 
 function checkOutLogin() {
 	var oaction = "checkOutLogin";

@@ -69,7 +69,7 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 </div>
 
 <div>
-	<button onclick="checkOutOrder()">Check Out</button>
+	<button onclick="alert('Eto dapat lalabas modal ')">Check Out</button>
 </div>
 
 
