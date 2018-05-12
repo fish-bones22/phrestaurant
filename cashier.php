@@ -48,9 +48,30 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 <div class="orderBox" name="orderBox" id="orderBox">
 	
 </div>
+
+<div>
+	<!--
+	eto yung modal
+	-->
+	<form>
+		<div>
+			<label>UserName:</label>
+			<input type="text" name="username" id="checkUsername">
+		</div>
+		<div>
+			<label>Password:</label>
+			<input type="password" name="password" id="checkPassword">
+		</div>
+		<div>
+			<button onclick="checkOutLogin()">Confirm</button>
+		</div>
+	</form>
+</div>
+
 <div>
 	<button onclick="checkOutOrder()">Check Out</button>
 </div>
+
 
 
 </body>

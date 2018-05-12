@@ -47,6 +47,25 @@ function checkOutOrder() {
 	});
 }
 
+function checkOutLogin() {
+	var oaction = "checkOutLogin";
+	var username = $("#checkUsername").val();
+	var password = $("#checkPassword").val();
+	$.ajax({
+		type: "post",
+		url: "php/Order.php",
+		data: {
+			action:oaction,
+			user:username,
+			pass:password
+		},
+		datatype: "json",
+		success: function(data){
+			console.log(data);
+		}
+	});
+}
+
 function showOrderlist() {
 	var oaction = "showOrder";
     $.ajax({

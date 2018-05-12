@@ -6,9 +6,7 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 
 	if (!isset($_REQUEST['action'])) {
 		$action = "showOrder";
-	}
-
-	if (isset($_REQUEST['action'])) {
+	} else if (isset($_REQUEST['action'])) {
 		$action = $_REQUEST['action'];
 	}
 
@@ -18,8 +16,8 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 		deleteOneOrder();
 	} elseif ($action == "showOrder") {
 		showOrderList();
-	} elseif ($action == "checkOut") {
-		checkOutOrder();
+	} elseif ($action == "checkOutLogin") {
+		checkOutLogin();
 	}
 
 	function addUpdateOrder($menuId) {
@@ -117,7 +115,30 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 		$db->close();
 	}
 
-	function checkOutOrder() {
+	function checkOutLogin() {
+		if (isset($_REQUEST['user'])) {
+		$user = $_REQUEST['user'];
+		}
+		if (isset($_REQUEST['pass'])) {
+		$pass = $_REQUEST['pass'];
+		}
+
+		$db = getDb();
+
+		$select_query = "SELECT * FROM user_table WHERE user_name = '".$user."'
+												AND user_password = '".$pass."'";
+
+		$result = $db->query($select_query);
+
+		if ($result->num_rows == 1) {
+			$row = $result->fetch_assoc();
+			checkOutOrder($row["user_id"]);
+		}
+	}
+
+	function checkOutOrder($id) {
+		$uid = $id;
+
 		$select_query = "SELECT * FROM order_table";
 
 		$db = getDb();
@@ -128,7 +149,7 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 			$add_query = "INSERT INTO transaction_table (user_id,
 														 order_id)
 														 VALUES
-														 ('1',
+														 ('".$uid."',
 														 '".$row["order_id"]."')";
 
 			$add_result = $db->query($add_query);
