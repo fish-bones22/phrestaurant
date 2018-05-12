@@ -1,3 +1,11 @@
+<?php 
+
+session_start();
+
+require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

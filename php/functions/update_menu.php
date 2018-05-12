@@ -43,6 +43,8 @@ else {
 	$product->quantity = $quantity;
 
 	$product->addToDatabase();
+	header("Location:../../menulist.php?succ");
+	exit();
 }
 
 header("Location:../../menumaster.php?id=$menuId&succ");

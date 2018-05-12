@@ -12,5 +12,6 @@ $result = mysqli_query($db, $query);
 mysqli_close($db);
 
 header("Location:../../logtime_verify.php");
+exit();
 
 ?>

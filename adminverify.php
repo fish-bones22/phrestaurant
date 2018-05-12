@@ -1,7 +1,12 @@
+<?php
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Daily Time Record</title> 
+	<title>Verify Admin</title> 
 	<link rel="stylesheet" href="fonts/Font-Awesome/css/font-awesome.css">
 	<link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="css/main.css" rel="stylesheet" type="text/css">
@@ -10,11 +15,14 @@
 	<?php include_once 'navbar.php'; ?>
 	<div class="container">
 		<div class="row">
+			<div class="col-md-8 offset-md-3">
+				<div class="display-4">Confirm you are Admin</div>
+				<div class="lead">To continue operation</div>
+			</div>
 			<div class="col-md-6 offset-md-3">
-				<form action="php/functions/get_log_status.php" method="post">
+				<form action="php/functions/verify_admin.php" method="post">
+					<input type="hidden" name="next_page" value="<?php echo $_REQUEST['page'] ?>" />
 					<div class="form-group">
-						<div class="display-4">Enter your credentials</div>
-						<div class="lead">To Log In or Log Out</div>
 					</div>
 					<div class="form-group">
 						<input type="text" name="username" class="form-control" placeholder="Username" required/>

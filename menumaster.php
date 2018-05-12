@@ -2,6 +2,7 @@
 
 require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Category.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
+include_once 'alert.php';
 
 // Get cateogories
 $categories = Category::getCategories();
@@ -23,6 +24,7 @@ if (isset($_REQUEST["id"]))
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+	<?php include_once 'navbar.php'; ?>
 
 	<div class="container">
 		<div class="row">
@@ -30,16 +32,24 @@ if (isset($_REQUEST["id"]))
 			<div class="col-md-6 offset-md-3">
 				<div class="h1">Menu Item</div>
 
+				<?php 
+				if (isset($_REQUEST["succ"])) {
+					showAlert(1, "Operation successful");
+				} else if (isset($_REQUEST["err"])) {
+					showAlert(2, "Operation failed");
+				} 
+				 ?>
+
 				<form action="php/functions/update_menu.php" method="post">
 					<input type="hidden" name="menu_id" value="<?php echo $menu->id ?>" />
 					<div class="form-group">
 						<label for="menu-name">Menu Name</label>
-						<input type="text" id="menu-name" name="menu_name" value="<?php echo $menu->name ?>" class="form-control" />
+						<input type="text" id="menu-name" name="menu_name" value="<?php echo $menu->name ?>" class="form-control" required/>
 					</div>
 
 					<div class="form-group">
 						<label for="menu-category">Menu Category</label>
-						<select id="menu-category" name="menu_category" class="form-control" value="<?php echo $menu->category ?>">
+						<select id="menu-category" name="menu_category" class="form-control" value="<?php echo $menu->category ?>" required>
 							<option value=""></option>
 						<?php
 						if ($categories != null) {
@@ -67,13 +77,13 @@ if (isset($_REQUEST["id"]))
 							<div class="col">
 								<div class="form-group">
 									<label for="menu-price">Price</label>
-									<input type="number" id="menu-price" name="menu_price" value="<?php echo $menu->price ?>" class="form-control" />
+									<input type="number" id="menu-price" name="menu_price" value="<?php echo $menu->price ?>" class="form-control" required/>
 								</div>
 							</div>
 							<div class="col">
 								<div class="form-group">
 									<label for="menu-quantity">Quantity</label>
-									<input type="number" id="menu-quantity" name="menu_quantity" value="<?php echo $menu->quantity ?>" class="form-control" />
+									<input type="number" id="menu-quantity" name="menu_quantity" value="<?php echo $menu->quantity ?>" class="form-control" required/>
 								</div>
 							</div>
 						</div>
@@ -89,9 +99,8 @@ if (isset($_REQUEST["id"]))
 		</div>
 	</div>
 
-
-
 	<script src="vendors/jquery/jquery.min.js"></script>
+	<script src="vendors/bootstrap/js/popper.min.js"></script>
 	<script src="vendors/bootstrap/js/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
 </body>
