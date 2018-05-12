@@ -82,6 +82,7 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 	}
 
 	function deleteOneOrder() {
+		
 		$id = $_REQUEST['id'];
 
 		$delete_query = "DELETE FROM order_table WHERE table_order_id = '".$id."'";
@@ -96,23 +97,23 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 	}
 
 	function showOrderList() {
-		$select_query = "SELECT * FROM order_table";
+
+		$select_query = "SELECT * FROM order_table 
+		INNER JOIN menu_table ON order_table.menu_id = menu_table.menu_id";
 
 		$db = getDb();
 
 		$result = $db->query($select_query);
 
+		$arr = [];
+
 		if ($result)
 	    while($row = $result->fetch_assoc()) {
-        echo '<tr>'
-        		.'<td><button onclick="deleteItem(this)" data-id="'.$row["table_order_id"].'">DELETE</button></td>'
-	            .'<td>'.$row["menu_id"].'</td>'
-	            .'<td>'.$row["order_quantity"].'</td>'
-	            .'</tr>';
-	    }
-	    echo '</table>';
-
+	    	$arr[] = $row;
+		}
+	    echo json_encode($arr);
 		$db->close();
+
 	}
 
 	function checkOutLogin() {

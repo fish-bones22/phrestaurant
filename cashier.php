@@ -1,53 +1,63 @@
 <?php 
 
 session_start();
-
 require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
+
+$menu = Product::getAllMenu();
 
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Cashier Menu</title>
+	<title>Take Order</title>
 	<link rel="stylesheet" href="fonts/Font-Awesome/css/font-awesome.css">
 	<link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="vendors/datatables/css/datatables.min.css" rel="stylesheet" type="text/css">
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 <body>
 
-	<div class="container menu col-md-6">
-		<?php
+	<div class="container">
+		<div class="row">
+			<div class="col">
+			<?php
+			if(!$menu) {
+				echo "No Menu Items Found";
+			} else {
 
-		$menu = Product::getAllMenu();
+				foreach ($menu as $product) {
+				?>
+				<div class="menu_item">
+					<button onclick="orderButtonSelected(this)" class="btn btn-light item_menu" type="button" name="button" data-id="<?php echo $product->id ?>">
+						<?php echo $product->name ?>
+						<?php echo $product->price ?>
+						<?php echo $product->quantity ?>
+					</button>
+				</div>
 
-		if(!$menu) {
-			echo "No Menu Items Found";
-		} else {
+				<?php
+				}
+			}
 
-			foreach ($menu as $product) {
 			?>
-			<div class="menu_item">
-				<div>
-					<form method="post">
-						<button onclick="orderButtonSelected(this)" class="item_menu" type="button" name="button" data-id="<?php echo $product->id ?>">
-							<?php echo $product->name ?>
-							<?php echo $product->price ?>
-							<?php echo $product->quantity ?>
-						</button>
-					</form>
+			</div>
+			<div class="col">
+				<div class="orderBox" name="orderBox" id="orderBox">
+					<table class="table table-sm">
+						<thead>
+							<tr>
+								<th>Menu</th>
+								<th>Quantity</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody id="order-list">
+							
+						</tbody>
+					</table>
 				</div>
 			</div>
-
-			<?php
-			}
-		}
-
-		?>
-	</div>
-
-	<div class="orderBox" name="orderBox" id="orderBox">
-		
+		</div>
 	</div>
 
 	<div>
