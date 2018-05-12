@@ -1,7 +1,7 @@
 <?php
 
 require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/functions/db_connect.php';
-require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/objProduct.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 	
 
 	if (!isset($_REQUEST['action'])) {

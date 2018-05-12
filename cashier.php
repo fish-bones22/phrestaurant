@@ -14,11 +14,6 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 <script type="text/javascript" src="js/cashier.js"></script>
 </head>
 <body>
-	<?php 
-		session_start();
-
-		require_once 'php/objects/objProduct.php';
-	?>
 
 <div class="container menu col-md-6">
 	<?php
