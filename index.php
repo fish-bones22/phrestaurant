@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>PH Resto</title>
-	<link rel="stylesheet" href="fonts/Font-Awesome/css/font-awesome.css">
+	<link href="fonts/Font-Awesome/css/font-awesome.css" rel="stylesheet">
 	<link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>

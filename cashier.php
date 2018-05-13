@@ -25,14 +25,14 @@ $menu = Product::getAllMenu();
 
 		<div class="h2">Take Orders</div>
 		<div class="row">
-			<div class="col">
+			<div class="col-sm">
 
 				<table class="table table-sm" id="menu-box">
 					<thead>
-						<th>Cat</th>
+						<th>Ctg</th>
 						<th>Menu</th>
-						<th>Price</th>
-						<th>Avail Qty</th>
+						<th>Pr</th>
+						<th>Qty</th>
 					</thead>
 					<tbody>
 						
@@ -59,14 +59,14 @@ $menu = Product::getAllMenu();
 					</tbody>
 				</table>
 			</div>
-			<div class="col">
+			<div class="col-sm">
 				<div class="orderBox" name="orderBox" id="orderBox">
 					<table class="table table-sm">
 						<thead>
 							<tr>
 								<th>Menu</th>
-								<th>Quantity</th>
-								<th>Price</th>
+								<th>Qty</th>
+								<th>Pr</th>
 								<th></th>
 							</tr>
 						</thead>

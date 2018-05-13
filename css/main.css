@@ -1,0 +1,112 @@
+/* Navbar */
+
+.navbar {
+	background-color: rgb(52, 58, 64);
+	height: 50px;
+	z-index: 2000;
+}
+
+.navbar-brand {
+	background-color: rgb(250, 250, 250);
+	border-radius: 20px;
+	padding-left: 7px;
+	transition: ease-in-out 0.2s;
+	width: 42px;
+}
+
+.navbar-brand:hover {
+	background-color: rgb(52, 58, 64);
+}
+
+.navbar-brand:hover img {
+	content: url('../img/logo-inverted.png');
+}
+
+
+.navbar .nav-item .nav-link {
+	border-radius: 25px;
+	font-family:'Segoe UI';
+	font-weight: 700;
+	padding-bottom: 0px;
+	padding-top: 0px;
+}
+
+.navbar .nav-item .nav-link:focus {
+	background-color: rgb(120, 120, 120);
+	color: rgb(250, 250, 250);
+}
+
+.navbar .dropdown-menu {
+	background-color: rgb(120, 120, 120);
+	border: none;
+}
+
+.navbar .dropdown-menu a {
+	color: rgb(250, 250, 250);
+}
+
+.navbar .dropdown-menu a:hover {
+	color: rgb(52, 58, 64);
+}
+
+.navbar .dropdown-menu a:active {
+	background-color: rgb(120, 120, 120);
+}
+
+/* Buttons */
+.btn {
+	font-family: 'Segoe UI';
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.btn-primary {
+	background-color: rgb(52, 58, 64);
+	border-color: rgb(52, 58, 64);
+}
+
+.btn-primary:hover {
+	background-color: rgb(220, 220, 220);
+	border-color: rgb(220, 220, 220);
+	color: rgb(50, 50, 50);
+}
+
+.btn-secondary {
+	background-color: rgb(240, 240, 240);
+	border-color: rgb(240, 240, 240);
+	color: rgb(50, 50, 50);
+}
+
+.btn-secondary:hover {
+	background-color: rgb(52, 58, 64);
+	border-color: rgb(52, 58, 64);
+}
+
+.btn.item_menu {
+	font-family: 'Segoe UI';
+	font-weight: 600;
+	text-transform: capitalize;
+}
+
+.paginate_button .page-link {
+	background-color: rgb(240, 240, 240);
+	border-color: rgb(240, 240, 240);
+	color: rgb(50, 50, 50);
+}
+
+.page-item .page-link {
+	background-color: rgb(240, 240, 240);
+	border-color: rgb(240, 240, 240);
+	color: rgb(50, 50, 50);
+}
+
+.page-item.active .page-link {
+	background-color: rgb(120, 120, 120);
+	border-color: rgb(120, 120, 120);
+}
+
+/* Modal */
+.modal {
+	border-radius: 0;
+	margin-top: 30px;
+}
