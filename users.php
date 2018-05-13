@@ -23,6 +23,7 @@ $_SESSION["user"] = 1;
 	<title>Users</title>
 	<link rel="stylesheet" href="fonts/Font-Awesome/css/font-awesome.css">
 	<link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="vendors/datatables/css/datatables.min.css" rel="stylesheet" type="text/css">
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -43,30 +44,41 @@ $_SESSION["user"] = 1;
 				} 
 				 ?>
 
-				<?php
-				if ($users != null)
-				foreach($users as $user) {
-				?>
+				 <table class="table table-sm" id="users-table">
+				 	<thead>
+				 		<tr>
+				 			<th>Name</th>
+				 			<th></th>
+				 		</tr>
+				 	</thead>
+				 	<tbody>
 
-				<div class="row">
-					<div class="col-8">
-						<a href="usermaster.php?id=<?php echo $user->id ?>"><?php echo $user->firstName." ".$user->lastName ?></a>
-					</div>
-					<button type="button" onclick="deleteUser(<?php echo $user->id ?>)" data-toggle="modal" data-target="#confirm-modal" class="btn close">&times</button>
-				</div>
+				 	<?php
+					if ($users != null)
+						foreach($users as $user) {
+					?>
 
-				<?php
-				}
-				else {
-				?>
-				<div class="text-muted">No Users yet.</div>
-				<?php
-				}// end if-else
-				?>
+						<tr>
+							<td>
+								<a href="usermaster.php?id=<?php echo $user->id ?>"><?php echo $user->firstName." ".$user->lastName ?></a>
+							</td>
+							<td>
+								<button type="button" onclick="deleteUser(<?php echo $user->id ?>)" data-toggle="modal" data-target="#confirm-modal" class="btn close">&times</button>
+							</td>
+						</tr>
 
-				<div class="row align-items-center">
-					<a href="usermaster.php">+ New User</a>
-				</div>
+					<?php
+						} // end foreach
+					?>
+				 	</tbody>
+				 	<tfoot>
+				 		<tr>
+				 			<td colspan="2">
+								<a class="btn btn-block btn-light" href="usermaster.php">+ New User</a>
+							</td>
+						</tr>
+					</tfoot>
+				 </table>
 			</div>
 		</div>
 	</div>
@@ -91,6 +103,7 @@ $_SESSION["user"] = 1;
 	<script src="vendors/jquery/jquery.min.js"></script>
 	<script src="vendors/bootstrap/js/popper.min.js"></script>
 	<script src="vendors/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendors/datatables/js/datatables.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/users.js"></script>
 

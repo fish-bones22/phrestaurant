@@ -13,6 +13,7 @@ $categories = Category::getCategories();
 	<title>Categories</title>
 	<link rel="stylesheet" href="fonts/Font-Awesome/css/font-awesome.css">
 	<link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="vendors/datatables/css/datatables.min.css" rel="stylesheet" type="text/css">
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -33,49 +34,45 @@ $categories = Category::getCategories();
 					} 
 					?>
 
+					<table class="table table-sm" id="category-table">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+						<?php
 
-					<div class="row">
-						<div class="col-9"><strong>Name</strong></div>
-					</div>
+						$i = 0;
+						if ($categories != null)
+						foreach($categories as $category) {
+						?>
+						<tr>
+							<td>
+								<input type="hidden" name="categoryId[<?php echo $i ?>]" value="<?php echo $category->id ?>">
+								<input class="form-control form-control-sm" type="text" value="<?php echo $category->name ?>"  name="categoryName[<?php echo $i ?>]" />
+							</td>
+							<td>
+								<button type="button" onclick="deleteCategory(<?php echo $category->id ?>)" data-toggle="modal" data-target="#confirm-modal" class="btn close">&times</button>
+							</td>
+						</tr>
 
-					<?php
-					$i = 0;
-					if ($categories != null)
-					foreach($categories as $category) {
-					?>
-					<div class="row mb-1">
-						<div class="col-9">
-							<input type="hidden" name="categoryId[<?php echo $i ?>]" value="<?php echo $category->id ?>">
-							<input class="form-control form-control-sm" type="text" value="<?php echo $category->name ?>"  name="categoryName[<?php echo $i ?>]" />
-						</div>
-						<div class="col-2">
-							<button type="button" onclick="deleteCategory(<?php echo $category->id ?>)" data-toggle="modal" data-target="#confirm-modal" class="btn close">&times</button>
-						</div>
-					</div>
-
-					<?php
-						$i++;
-					}
-					else {
-					?>
-					<div class="text-muted">No Categories yet.</div>
-					<?php
-					}// end if-else
-					?>
-
-					<div class="row mb-1 new-category" hidden>
-						<div class="col-9">
-							<input type="text" class="form-control form-control-sm" name="new_category">
-						</div>
-						<div class="col-2">
-							<button type="button" onclick="hideNewCategory()" class="btn close">&times</button>
-						</div>
-					</div>
-
-
-					<div class="row align-items-center">
-						<button onclick="showNewCategory()" type="button" class="btn btn-link">+ New Category</button>
-					</div>
+						<?php
+							$i++;
+						} // end foreach
+						?>
+						</tbody>
+						<tfoot>
+							<tr class="new-category" hidden>
+								<td><input type="text" class="form-control form-control-sm" name="new_category"></td>
+								<td><button type="button" onclick="hideNewCategory()" class="btn close">&times</button></td>
+							</tr>
+							<tr>
+								<td colspan="2"><button onclick="showNewCategory()" type="button" class="btn btn-block btn-light">+ New Category</button></td>
+							</tr>
+						</tfoot>
+					</table>
 
 					<div class="btn-group float-right">
 						<button type="reset" id="menu-price" name="menu_price" class="btn btn-secondary mr-2">Reset</button>
@@ -107,6 +104,7 @@ $categories = Category::getCategories();
 	<script src="vendors/jquery/jquery.min.js"></script>
 	<script src="vendors/bootstrap/js/popper.min.js"></script>
 	<script src="vendors/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendors/datatables/js/datatables.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/categories.js"></script>
 
