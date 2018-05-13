@@ -181,8 +181,10 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 			$add_result = $db->query($add_query);
 
 			$update_query = "UPDATE menu_table SET 
-							 menu_quantity = 'menu_quantity-".$row["order_quantity"]."'
+							 menu_quantity = menu_quantity-'".$row["order_quantity"]."'
 							 WHERE menu_id = '".$row["menu_id"]."'";
+
+			$update_result = $db->query($update_query);
 		}
 
 

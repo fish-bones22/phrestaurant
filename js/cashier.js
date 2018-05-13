@@ -61,11 +61,13 @@ function deleteItem(oid) {
 }
 
 
-function checkOutLogin() {
+function checkOutLog() {
 	var oaction = "checkOutLogin";
-	var username = $("#checkUsername").val();
-	var password = $("#checkPassword").val();
-
+	//document.getElementById("uniqueID").value;
+	var username = document.getElementById("checkUsername").value;
+	//alert(username);//$("#checkUsername").val();
+	var password = document.getElementById("checkPassword").value;//$("#checkPassword").val();
+	//alert(password);
 	$.ajax({
 		type: "post",
 		url: "php/functions/order.php",

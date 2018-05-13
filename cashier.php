@@ -104,7 +104,7 @@ $menu = Product::getAllMenu();
 						<input class="form-control form-control-sm" type="password" name="password" id="checkPassword" placeholder="Password">
 					</div>
 					<div class="btn-group float-right">
-						<button class="btn btn-primary" onclick="checkOutLogin()">Confirm</button>
+						<button class="btn btn-primary" onclick="checkOutLog()">Confirm</button>
 					</div>
 				</div>
 			</div>
