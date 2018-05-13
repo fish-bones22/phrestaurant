@@ -37,10 +37,11 @@ $menu = Product::getAllMenu();
 					<tbody>
 						
 					<?php
-					foreach ($menu as $product) {
-						// Shorten names
-						$cat = strlen($product->categoryName) > 4 ? substr($product->categoryName, 0, 4) : $product->categoryName;
-						$menuName = strlen($product->name) > 25 ? substr($product->name, 0, 22)."..." : $product->name;
+					if ($menu) {
+						foreach ($menu as $product) {
+							// Shorten names
+							$cat = strlen($product->categoryName) > 4 ? substr($product->categoryName, 0, 4) : $product->categoryName;
+							$menuName = strlen($product->name) > 25 ? substr($product->name, 0, 22)."..." : $product->name;
 					?>
 					<tr class="menu_item">
 						<td><?php echo  $cat ?></td>
@@ -51,7 +52,8 @@ $menu = Product::getAllMenu();
 						<td><?php echo $product->quantity ?></td>
 					</tr>
 					<?php
-					}
+						} // end foreach
+					} // end if
 					?>
 
 					</tbody>
