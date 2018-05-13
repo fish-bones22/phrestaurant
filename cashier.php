@@ -46,7 +46,7 @@ $menu = Product::getAllMenu();
 					<tr class="menu_item">
 						<td><?php echo  $cat ?></td>
 						<td>
-							<button onclick="buttonSelected(this)" class="btn btn-light btn-block item_menu" type="button" id="btn-menu-<?php echo $product->id?>" name="button" data-id="<?php echo $product->id ?>" data-quantity=""><?php echo $menuName ?></button>
+							<button onclick="buttonSelected(this)" class="btn btn-light btn-block item_menu" type="button" id="btn-menu-<?php echo $product->id?>" name="button" data-id="<?php echo $product->id ?>" <?php echo $product->quantity <= 0 ? "disabled": "" ?> ><?php echo $menuName ?></button>
 							<input id="avail-qty-menu-<?php echo $product->id?>" type="hidden" name="quantity" value="<?php echo $product->quantity ?>">
 						</td>
 						<td><?php echo $product->price ?></td>
@@ -56,7 +56,7 @@ $menu = Product::getAllMenu();
 						} // end foreach
 					} // end if
 					?>
-
+						<tfoot><tr><td colspan="4"><a href="transaction.php">Transaction history</a></tr></tfoot>
 					</tbody>
 				</table>
 			</div>

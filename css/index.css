@@ -1,0 +1,17 @@
+body {
+	background-image: url("../img/bg.jpg");
+}
+
+#action-container {
+	position: relative;
+	margin-left: auto;
+    margin-right: auto;
+    top: 10em;
+    width: 33em;
+}
+
+.btn {
+	font-family: 'Corbel';
+	font-weight: 800;
+	font-weight: unset;
+}

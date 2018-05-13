@@ -25,10 +25,6 @@
       	<li class="nav-item mr-2 ml-2">
         	<a class="nav-link" href="logtime_verify.php">DTR</a>
       	</li>
-
-        <li class="nav-item mr-2 ml-2">
-          <a class="nav-link" href="transaction.php">TRANSACTIONS</a>
-        </li>
     </ul>
 	</div>
 

@@ -12,6 +12,7 @@ $transactions = Transaction::getAllTransaction();
 	<link rel="stylesheet" href="fonts/Font-Awesome/css/font-awesome.css">
 	<link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="vendors/datatables/css/datatables.min.css" rel="stylesheet" type="text/css">
+	<link href="vendors/datatables/css/rowGroup.bootstrap4.min.css" rel="stylesheet" type="text/css">
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -19,12 +20,13 @@ $transactions = Transaction::getAllTransaction();
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 offset-md-2">
-				<table class="table table-sm" id="log-table">
+				<div class="h2">Transactions</div>
+				<table class="table table-sm" id="transaction-table">
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>Order Id</th>
-							<th>User</th>
+							<th>Trans</th>
+							<th>Cashier</th>
 							<th>Menu</th>
 							<th>Date</th>
 						</tr>
@@ -37,7 +39,7 @@ $transactions = Transaction::getAllTransaction();
 						?>
 							<tr>
 								<td><?php echo $transaction->transactionId ?></td>
-								<td><?php echo $transaction->orderId ?></td>
+								<td>Trans #<?php echo $transaction->orderId ?></td>
 								<td><?php echo $transaction->userName ?></td>
 								<td><?php echo $transaction->menuName ?></td>
 								<td><?php echo $transaction->formattedDate ?></td>
@@ -55,7 +57,8 @@ $transactions = Transaction::getAllTransaction();
 	<script src="vendors/bootstrap/js/popper.min.js"></script>
 	<script src="vendors/bootstrap/js/bootstrap.min.js"></script>
 	<script src="vendors/datatables/js/datatables.min.js"></script>
+	<script src="vendors/datatables/js/dataTables.rowGroup.min.js"></script>
 	<script src="js/main.js"></script>
-	<script src="js/loghistory.js"></script>
+	<script src="js/transaction.js"></script>
 </body>
 </html>
