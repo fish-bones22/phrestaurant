@@ -16,29 +16,29 @@ function orderButtonSelected(self) {
 	});
 }
 
-function checkQuantity(self) {
+function checkQuantity(id) {
 
-	var id = $(self).data("id");
-	var availQty = $(self).siblings('input').val();
+	var availQty = $("#avail-qty-menu-" + id).val();
 	var qty = $("#qty-menu-" + id).val();
 	
 	if (qty === undefined) {
 		return;
 	}
-	console.log(qty);
 
 	if (availQty - qty <= 1) {
-		$(self).attr('disabled', '');
+		$("#btn-menu-"+id).attr('disabled', '');
 	} else {
-		$(self).removeAttr('disabled');
+		$("#btn-menu-"+id).removeAttr('disabled');
 	}
+
+	$("#avail-qty-disp-"+id).text(availQty - qty);
 
 }
 
 
 function buttonSelected(self) {
 	orderButtonSelected(self);
-	checkQuantity(self);
+	checkQuantity($(self).data('id'));
 }
 
 
@@ -55,10 +55,10 @@ function deleteItem(oid) {
 		datatype: "json",
 		success: function(data){
 			showOrderlist();
-			
 		}
 	});
 }
+
 
 function checkOutLogin() {
 	var oaction = "checkOutLogin";
@@ -150,10 +150,15 @@ function updateOrderList(array) {
 		btn.className = "close";
 		    // Add data attr on button
 		btn.setAttribute('data-id', array[i].table_order_id);
+		btn.setAttribute('data-menuid', array[i].menu_id);
+
 		    // Add onclick on button
 		btn.onclick = function() { 
 			var orderId = $(this).data('id');
+			var menuId = $(this).data('menuid');
 			deleteItem(orderId);
+			$("#btn-menu-"+menuId).removeAttr("disabled");
+			$("#avail-qty-disp-"+menuId).text($("#avail-qty-menu-"+menuId).val());
 		};
 		tdDelete.appendChild(btn);
 
@@ -174,7 +179,7 @@ function updateOrderList(array) {
 function disableMenuByQty() {
 
 	$(".item_menu").each(function() {
-		checkQuantity(this);
+		checkQuantity($(this).data('id'));
 	});
 
 }

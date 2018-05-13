@@ -46,11 +46,11 @@ $menu = Product::getAllMenu();
 					<tr class="menu_item">
 						<td><?php echo  $cat ?></td>
 						<td>
-							<button onclick="buttonSelected(this)" class="btn btn-light btn-block item_menu" type="button" name="button" data-id="<?php echo $product->id ?>" data-quantity=""><?php echo $menuName ?></button>
-							<input type="hidden" name="quantity" value="<?php echo $product->quantity ?>">
+							<button onclick="buttonSelected(this)" class="btn btn-light btn-block item_menu" type="button" id="btn-menu-<?php echo $product->id?>" name="button" data-id="<?php echo $product->id ?>" data-quantity=""><?php echo $menuName ?></button>
+							<input id="avail-qty-menu-<?php echo $product->id?>" type="hidden" name="quantity" value="<?php echo $product->quantity ?>">
 						</td>
 						<td><?php echo $product->price ?></td>
-						<td><?php echo $product->quantity ?></td>
+						<td id="avail-qty-disp-<?php echo $product->id?>"><?php echo $product->quantity ?></td>
 					</tr>
 					<?php
 						} // end foreach
