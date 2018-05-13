@@ -46,7 +46,8 @@ $menu = Product::getAllMenu();
 					<tr class="menu_item">
 						<td><?php echo  $cat ?></td>
 						<td>
-							<button onclick="orderButtonSelected(this)" class="btn btn-light btn-block item_menu" type="button" name="button" data-id="<?php echo $product->id ?>"><?php echo $menuName ?></button>
+							<button onclick="containerMethod(this)" class="btn btn-light btn-block item_menu" type="button" name="button" data-id="<?php echo $product->id ?>" data-quantity=""><?php echo $menuName ?></button>
+							<input type="hidden" name="quantity" value="<?php echo $product->quantity ?>">
 						</td>
 						<td><?php echo $product->price ?></td>
 						<td><?php echo $product->quantity ?></td>

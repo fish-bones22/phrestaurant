@@ -16,6 +16,48 @@ function orderButtonSelected(self) {
 	});
 }
 
+function checkQuantity(self) {
+	//var quantity = $(self).data('quantity');
+	var oid = $(self).data("id");
+	//alert(oid);
+	var quantity = $(self).siblings('input').val();
+	var newQuantity;
+	quantityCheck(oid, function(data){
+		//alert(data);
+		newQuantity = data;
+		alert(newQuantity);
+	});
+
+	if (quantity == newQuantity) {
+		$(self).attr('disabled');
+	}
+}
+
+function quantityCheck(id, callback) {
+	var oid = id;
+	var oaction = "quantityCheck";
+	$.ajax({
+		type: "post",	
+		url: "php/functions/order.php",
+		data: {
+			id:oid, 
+			action:oaction
+		},
+		datatype: "json",
+		success: function(data){
+			console.log(data);
+			//alert(data);
+			callback(data);
+			showOrderlist();
+		}
+	});
+}
+
+function containerMethod(self) {
+	orderButtonSelected(self);
+	checkQuantity(self);
+}
+
 function deleteItem(oid) {
 	var oaction = "deleteItem";
 	console.log(oid);
@@ -145,7 +187,6 @@ function updateOrderList(array) {
 	}
 
 	$("#order-list").append("<tr><th>Total:</th><td></td><th> " + totalPr + "</this></tr>");
-
 }
 
 // function loadlink(){
