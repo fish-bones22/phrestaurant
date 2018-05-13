@@ -16,6 +16,7 @@ function orderButtonSelected(self) {
 	});
 }
 
+
 function checkQuantity(id) {
 
 	var availQty = $("#avail-qty-menu-" + id).val();
@@ -31,14 +32,14 @@ function checkQuantity(id) {
 		$("#btn-menu-"+id).removeAttr('disabled');
 	}
 
-	$("#avail-qty-disp-"+id).text(availQty - qty);
+	$("#avail-qty-disp-"+id).text(availQty-qty);
 
 }
 
 
 function buttonSelected(self) {
 	orderButtonSelected(self);
-	checkQuantity($(self).data('id'));
+	 checkQuantity($(self).data('id'));
 }
 
 
@@ -80,6 +81,7 @@ function checkOutLogin() {
 	});
 }
 
+
 function showOrderlist() {
 	var oaction = "showOrder";
     $.ajax({
@@ -94,6 +96,7 @@ function showOrderlist() {
         }
     });
 }
+
 
 var isQtyReset = true;
 function updateOrderList(array) {
@@ -131,10 +134,11 @@ function updateOrderList(array) {
 		input.id = "qty-menu-" + array[i].menu_id;
 		input.value = array[i].order_quantity;
 		tdQuan.appendChild(input);
+		$("#avail-qty-disp-"+array[i].menu_id).text($("#avail-qty-menu-"+array[i].menu_id).val() - array[i].order_quantity);
 
 		tr.appendChild(tdQuan);
 
-		// Create table data for quantity
+		// Create table data for price
 		var tdPrice = document.createElement("td");
 		var price = array[i].order_quantity * array[i].menu_price;
 		totalPr += price;
@@ -157,8 +161,10 @@ function updateOrderList(array) {
 			var orderId = $(this).data('id');
 			var menuId = $(this).data('menuid');
 			deleteItem(orderId);
+
 			$("#btn-menu-"+menuId).removeAttr("disabled");
 			$("#avail-qty-disp-"+menuId).text($("#avail-qty-menu-"+menuId).val());
+
 		};
 		tdDelete.appendChild(btn);
 
