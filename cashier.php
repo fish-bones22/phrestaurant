@@ -50,7 +50,7 @@ $menu = Product::getAllMenu();
 							<input id="avail-qty-menu-<?php echo $product->id?>" type="hidden" name="quantity" value="<?php echo $product->quantity ?>">
 						</td>
 						<td><?php echo $product->price ?></td>
-						<td id="avail-qty-disp-<?php echo $product->id?>"><?php echo $product->quantity ?></td>
+						<td class="avail-qty-disp" id="avail-qty-disp-<?php echo $product->id?>" data-original="<?php echo $product->quantity ?>"><?php echo $product->quantity ?></td>
 					</tr>
 					<?php
 						} // end foreach
@@ -97,6 +97,7 @@ $menu = Product::getAllMenu();
 					<button class="close" data-dismiss="modal">&times</button>
 				</div>
 				<div class="modal-body">
+					<div id="verify-failed" class="alert alert-danger" hidden>Username or password does not exist<button class="close" onclick="$('#verify-failed').attr('hidden', '')">&times;</button></div>
 					<div class="form-group">
 						<input class="form-control form-control-sm" type="text" name="username" id="checkUsername" placeholder="Username">
 					</div>
@@ -116,6 +117,7 @@ $menu = Product::getAllMenu();
 	<script src="vendors/bootstrap/js/popper.min.js"></script>
 	<script src="vendors/bootstrap/js/bootstrap.min.js"></script>
 	<script src="vendors/datatables/js/datatables.min.js"></script>
+	<script src="vendors/jspdf/jspdf.min.js"></script>
 	<script src="js/cashier.js"></script>
 
 </body>

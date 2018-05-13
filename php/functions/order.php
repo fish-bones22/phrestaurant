@@ -104,9 +104,24 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 		
 		$id = $_REQUEST['id'];
 
+		$select_query = "SELECT order_quantity FROM order_table WHERE table_order_id = '".$id."'";
+
 		$delete_query = "UPDATE order_table SET order_quantity = order_quantity-1 WHERE table_order_id = '".$id."' AND order_quantity > 0";
 
 		$db = getDb();
+
+		$result = $db->query($select_query);
+
+		if ($result) {
+			while ($row = $result->fetch_assoc()) {
+				if ($row['order_quantity'] == 1) {
+					deleteOneOrder();
+					$db->close();
+					return;
+				}
+				break;
+			}
+		} 
 
 		$result = $db->query($delete_query);
 
@@ -152,8 +167,16 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 
 		if ($result->num_rows == 1) {
 			$row = $result->fetch_assoc();
-			checkOutOrder($row["user_id"]);
+			if (checkOutOrder($row["user_id"])) {
+				echo $row["user_first_name"]." ".$row["user_last_name"];
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
+
+		return false;
 	}
 
 	function checkQuantity() {
@@ -212,6 +235,8 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 		$db->close();
 
 		if (!$result) return false;
+
+		return true;
 	}
 
 ?>

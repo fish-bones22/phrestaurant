@@ -65,6 +65,11 @@
 	border-color: rgb(52, 58, 64);
 }
 
+.btn-primary:disabled {
+	background-color: rgb(202, 208, 214);
+	border-color: rgb(202, 208, 214);
+}
+
 .btn-primary:hover {
 	background-color: rgb(220, 220, 220);
 	border-color: rgb(220, 220, 220);
