@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2018 at 07:31 PM
--- Server version: 10.1.24-MariaDB
--- PHP Version: 7.1.6
+-- Generation Time: May 13, 2018 at 12:47 PM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 7.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -33,6 +31,15 @@ CREATE TABLE `category_table` (
   `category_name` varchar(50) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `category_table`
+--
+
+INSERT INTO `category_table` (`category_id`, `category_name`, `timestamp`) VALUES
+(7, 'qwer', '2018-05-13 10:27:16'),
+(8, 'asdf', '2018-05-13 10:27:19'),
+(9, 'zxcv', '2018-05-13 10:27:23');
 
 -- --------------------------------------------------------
 
@@ -74,6 +81,13 @@ CREATE TABLE `menu_table` (
   `menu_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `menu_table`
+--
+
+INSERT INTO `menu_table` (`menu_id`, `menu_name`, `menu_price`, `menu_quantity`, `category_id`, `menu_timestamp`) VALUES
+(7, 'qwer', 12, 116, 7, '2018-05-13 10:44:39');
+
 -- --------------------------------------------------------
 
 --
@@ -98,8 +112,21 @@ CREATE TABLE `transaction_table` (
   `transaction_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
+  `menu_id` int(11) NOT NULL,
   `transaction_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transaction_table`
+--
+
+INSERT INTO `transaction_table` (`transaction_id`, `user_id`, `order_id`, `menu_id`, `transaction_timestamp`) VALUES
+(1, 8, 1, 7, '2018-05-13 10:28:45'),
+(2, 8, 2, 7, '2018-05-13 10:36:06'),
+(3, 8, 3, 7, '2018-05-13 10:37:52'),
+(4, 8, 4, 7, '2018-05-13 10:38:31'),
+(5, 8, 5, 7, '2018-05-13 10:42:21'),
+(6, 8, 6, 7, '2018-05-13 10:44:39');
 
 -- --------------------------------------------------------
 
@@ -116,6 +143,13 @@ CREATE TABLE `user_table` (
   `user_last_name` varchar(50) NOT NULL,
   `user_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_table`
+--
+
+INSERT INTO `user_table` (`user_id`, `user_name`, `user_password`, `isAdmin`, `user_first_name`, `user_last_name`, `user_timestamp`) VALUES
+(8, 'asdf', 'asdf', 0, 'asdf', 'asdf', '2018-05-13 10:26:45');
 
 --
 -- Indexes for dumped tables
@@ -171,7 +205,7 @@ ALTER TABLE `user_table`
 -- AUTO_INCREMENT for table `category_table`
 --
 ALTER TABLE `category_table`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `dtr_table`
 --
@@ -186,23 +220,22 @@ ALTER TABLE `inventory_table`
 -- AUTO_INCREMENT for table `menu_table`
 --
 ALTER TABLE `menu_table`
-  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `order_table`
 --
 ALTER TABLE `order_table`
-  MODIFY `table_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `table_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `transaction_table`
 --
 ALTER TABLE `transaction_table`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `user_table`
 --
 ALTER TABLE `user_table`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;COMMIT;
-
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
