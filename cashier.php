@@ -46,7 +46,7 @@ $menu = Product::getAllMenu();
 					<tr class="menu_item">
 						<td><?php echo  $cat ?></td>
 						<td>
-							<button onclick="containerMethod(this)" class="btn btn-light btn-block item_menu" type="button" name="button" data-id="<?php echo $product->id ?>" data-quantity=""><?php echo $menuName ?></button>
+							<button onclick="buttonSelected(this)" class="btn btn-light btn-block item_menu" type="button" name="button" data-id="<?php echo $product->id ?>" data-quantity=""><?php echo $menuName ?></button>
 							<input type="hidden" name="quantity" value="<?php echo $product->quantity ?>">
 						</td>
 						<td><?php echo $product->price ?></td>
@@ -88,7 +88,6 @@ $menu = Product::getAllMenu();
 		</div>
 
 	</div>
-
 
 	<div id="verify-account-modal" class="modal fade" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">

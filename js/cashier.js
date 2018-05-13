@@ -17,46 +17,30 @@ function orderButtonSelected(self) {
 }
 
 function checkQuantity(self) {
-	//var quantity = $(self).data('quantity');
-	var oid = $(self).data("id");
-	//alert(oid);
-	var quantity = $(self).siblings('input').val();
-	var newQuantity;
-	quantityCheck(oid, function(data){
-		//alert(data);
-		newQuantity = data;
-		alert(newQuantity);
-	});
 
-	if (quantity == newQuantity) {
-		$(self).attr('disabled');
+	var id = $(self).data("id");
+	var availQty = $(self).siblings('input').val();
+	var qty = $("#qty-menu-" + id).val();
+	
+	if (qty === undefined) {
+		return;
 	}
+	console.log(qty);
+
+	if (availQty - qty <= 1) {
+		$(self).attr('disabled', '');
+	} else {
+		$(self).removeAttr('disabled');
+	}
+
 }
 
-function quantityCheck(id, callback) {
-	var oid = id;
-	var oaction = "quantityCheck";
-	$.ajax({
-		type: "post",	
-		url: "php/functions/order.php",
-		data: {
-			id:oid, 
-			action:oaction
-		},
-		datatype: "json",
-		success: function(data){
-			console.log(data);
-			//alert(data);
-			callback(data);
-			showOrderlist();
-		}
-	});
-}
 
-function containerMethod(self) {
+function buttonSelected(self) {
 	orderButtonSelected(self);
 	checkQuantity(self);
 }
+
 
 function deleteItem(oid) {
 	var oaction = "deleteItem";
@@ -70,26 +54,11 @@ function deleteItem(oid) {
 		},
 		datatype: "json",
 		success: function(data){
-			console.log(data);
 			showOrderlist();
+			
 		}
 	});
 }
-
-// function checkOutOrder() {
-// 	var oaction = "checkOut";
-// 	$.ajax({
-// 		type: "post",
-// 		url: "php/Order.php",
-// 		data: {
-// 			action:oaction
-// 		},
-// 		datatype: "json",
-// 		success: function(data){
-// 			console.log(data);
-// 		}
-// 	});
-// }
 
 function checkOutLogin() {
 	var oaction = "checkOutLogin";
@@ -126,6 +95,7 @@ function showOrderlist() {
     });
 }
 
+var isQtyReset = true;
 function updateOrderList(array) {
 	
 	$("#order-list").html("");
@@ -143,7 +113,6 @@ function updateOrderList(array) {
 	var totalPr = 0;
 
 	for (var i = 0; i < array.length ; i++) {
-		console.log(array[i]);
 		
 		var tr = document.createElement("tr");
 
@@ -156,6 +125,13 @@ function updateOrderList(array) {
 		// Create table data for quantity
 		var tdQuan = document.createElement("td");
 		tdQuan.appendChild(document.createTextNode(array[i].order_quantity));
+		// Create hidden input for quantity
+		var input = document.createElement("input");
+		input.type = "hidden";
+		input.id = "qty-menu-" + array[i].menu_id;
+		input.value = array[i].order_quantity;
+		tdQuan.appendChild(input);
+
 		tr.appendChild(tdQuan);
 
 		// Create table data for quantity
@@ -169,17 +145,18 @@ function updateOrderList(array) {
 		var tdDelete = document.createElement("td");
 		  // Create button
 		var btn = document.createElement("button");
-		  // Add text on button
+		    // Add text on button
 		btn.appendChild(document.createTextNode("×"));
 		btn.className = "close";
-		  // Add data attr on button
+		    // Add data attr on button
 		btn.setAttribute('data-id', array[i].table_order_id);
+		    // Add onclick on button
 		btn.onclick = function() { 
-		  // Add onclick on button
 			var orderId = $(this).data('id');
 			deleteItem(orderId);
 		};
 		tdDelete.appendChild(btn);
+
 		tr.appendChild(tdDelete);
 
 
@@ -187,6 +164,19 @@ function updateOrderList(array) {
 	}
 
 	$("#order-list").append("<tr><th>Total:</th><td></td><th> " + totalPr + "</this></tr>");
+
+	if (isQtyReset) {
+		isQtyReset = false;
+		disableMenuByQty();
+	}
+}
+
+function disableMenuByQty() {
+
+	$(".item_menu").each(function() {
+		checkQuantity(this);
+	});
+
 }
 
 // function loadlink(){
@@ -200,8 +190,6 @@ $(document).ready(function() {
 
 	showOrderlist(); // This will run on page load
 	$("#menu-box").DataTable();
-
-	//intv = setInterval(showOrderlist, 5000);
 
 });
 
