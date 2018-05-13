@@ -18,6 +18,8 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 		showOrderList();
 	} elseif ($action == "checkOutLogin") {
 		checkOutLogin();
+	} elseif ($action == "quantityCheck") {
+		checkQuantity();
 	}
 
 	function addUpdateOrder($menuId) {
@@ -137,6 +139,27 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 		}
 	}
 
+	function checkQuantity() {
+		$qid = $_REQUEST['id'];
+
+		$db = getDb();
+
+		$select_query = "SELECT * FROM order_table 
+						 WHERE menu_id = '".$qid."'";
+
+		$result = $db->query($select_query);
+
+		$row = $result->fetch_assoc();
+
+		$db->close();
+
+		if (!$result) return false;
+
+		//return $row["order_quantity"];
+		//return 1;
+		echo $row["order_quantity"];
+	}
+
 	function checkOutOrder($id) {
 		$uid = $id;
 
@@ -154,7 +177,12 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 														 '".$row["order_id"]."')";
 
 			$add_result = $db->query($add_query);
+
+			$update_query = "UPDATE menu_table SET 
+							 menu_quantity = menu_quantity-'".$row["order_quantity"]."'
+							 WHERE menu_id = '".$row["menu_id"]."'";
 		}
+
 
 		$delete_query = "DELETE FROM order_table";
 
