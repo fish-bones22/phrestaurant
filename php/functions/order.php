@@ -171,15 +171,17 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 
 		while ($row = $result->fetch_assoc()) {
 			$add_query = "INSERT INTO transaction_table (user_id,
-														 order_id)
+														 order_id,
+														 menu_id)
 														 VALUES
 														 ('".$uid."',
-														 '".$row["order_id"]."')";
+														 '".$row["order_id"]."',
+														 '".$row["menu_id"]."')";
 
 			$add_result = $db->query($add_query);
 
 			$update_query = "UPDATE menu_table SET 
-							 menu_quantity = menu_quantity-'".$row["order_quantity"]."'
+							 menu_quantity = 'menu_quantity-".$row["order_quantity"]."'
 							 WHERE menu_id = '".$row["menu_id"]."'";
 		}
 
