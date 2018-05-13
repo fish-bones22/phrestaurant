@@ -61,6 +61,24 @@ function deleteItem(oid) {
 }
 
 
+function deductQuantity(oid) {
+	var oaction = "deductQuantity";
+	console.log(oid);
+	$.ajax({
+		type: "post",
+		url: "php/functions/order.php",
+		data: {
+			id:oid,
+			action:oaction
+		},
+		datatype: "json",
+		success: function(data){
+			showOrderlist();
+		}
+	});
+}
+
+
 function checkOutLog() {
 	var oaction = "checkOutLogin";
 	//document.getElementById("uniqueID").value;
@@ -136,7 +154,20 @@ function updateOrderList(array) {
 		input.id = "qty-menu-" + array[i].menu_id;
 		input.value = array[i].order_quantity;
 		tdQuan.appendChild(input);
+		// Set text of available quantity display to correct amount
 		$("#avail-qty-disp-"+array[i].menu_id).text($("#avail-qty-menu-"+array[i].menu_id).val() - array[i].order_quantity);
+		// Create deduct quantity button
+		var minusBtn = document.createElement("btn");
+		minusBtn.type = "button";
+		minusBtn.className = "btn btn-sm btn-link";
+		var minusSign = document.createElement("i");
+		minusSign.className = "fa fa-minus";
+		minusBtn.appendChild(minusSign);
+		minusBtn.setAttribute("data-id", array[i].table_order_id);
+		minusBtn.onclick = function() {
+			deductQuantity($(this).data('id'));
+		};
+		tdQuan.appendChild(minusBtn);
 
 		tr.appendChild(tdQuan);
 
@@ -202,7 +233,14 @@ function disableMenuByQty() {
 $(document).ready(function() {
 
 	showOrderlist(); // This will run on page load
-	$("#menu-box").DataTable();
+	$("#menu-box").DataTable({
+    	"bLengthChange": false,
+        "info":     	false,
+        "pageLength": 7
+	});
+	$('.dataTables_filter').parent().siblings().remove();
+	$('.dataTables_filter').parent().removeClass("col-sm-12 col-md-6");
+	$('.dataTables_filter').parent().addClass("col-3");
 
 });
 

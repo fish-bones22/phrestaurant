@@ -1,6 +1,5 @@
 <?php
-
-
+include_once 'alert.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +19,13 @@
 				<div class="lead">To continue operation</div>
 			</div>
 			<div class="col-md-6 offset-md-3">
+				<?php 
+				if (isset($_REQUEST["succ"])) {
+					showAlert(1, "Operation successful");
+				} else if (isset($_REQUEST["err"])) {
+					showAlert(2, "Operation failed");
+				} 
+				?>
 				<form action="php/functions/verify_admin.php" method="post">
 					<input type="hidden" name="next_page" value="<?php echo $_REQUEST['page'] ?>" />
 					<div class="form-group">

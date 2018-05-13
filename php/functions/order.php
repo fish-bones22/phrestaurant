@@ -20,6 +20,8 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 		checkOutLogin();
 	} elseif ($action == "quantityCheck") {
 		checkQuantity();
+	} elseif ($action == "deductQuantity") {
+		deductQuantity();
 	}
 
 	function addUpdateOrder($menuId) {
@@ -88,6 +90,21 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 		$id = $_REQUEST['id'];
 
 		$delete_query = "DELETE FROM order_table WHERE table_order_id = '".$id."'";
+
+		$db = getDb();
+
+		$result = $db->query($delete_query);
+
+		$db->close();
+
+		if (!$result) return false;
+	}
+
+	function deductQuantity() {
+		
+		$id = $_REQUEST['id'];
+
+		$delete_query = "UPDATE order_table SET order_quantity = order_quantity-1 WHERE table_order_id = '".$id."' AND order_quantity > 0";
 
 		$db = getDb();
 

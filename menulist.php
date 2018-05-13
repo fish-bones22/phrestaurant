@@ -38,6 +38,7 @@ $menus = Product::getAllMenu();
 
 				<table class="table table-sm" id="menu-table">
 					<thead>
+						<th>Cat</th>
 						<th>Menu</th>
 						<th></th>
 					</thead>
@@ -45,11 +46,15 @@ $menus = Product::getAllMenu();
 					<?php
 					if ($menus != null)
 					foreach($menus as $menu) {
+						// Shorten names
+						$cat = strlen($menu->categoryName) > 4 ? substr($menu->categoryName, 0, 4) : $menu->categoryName;
+						$menuName = strlen($menu->name) > 35 ? substr($menu->name, 0, 32)."..." : $menu->name;
 					?>
 
 					<tr>
-						<td class="col-8">
-							<a href="menumaster.php?id=<?php echo $menu->id ?>"><?php echo $menu->name ?></a>
+						<td><?php echo $cat ?></td>
+						<td>
+							<a href="menumaster.php?id=<?php echo $menu->id ?>"><?php echo $menuName ?></a>
 						</td>
 						<td>
 							<button type="button" onclick="deleteMenu(<?php echo $menu->id ?>)" data-toggle="modal" data-target="#confirm-modal" class="close">&times</button>
