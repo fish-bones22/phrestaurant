@@ -202,7 +202,14 @@ function disableMenuByQty() {
 $(document).ready(function() {
 
 	showOrderlist(); // This will run on page load
-	$("#menu-box").DataTable();
+	$("#menu-box").DataTable({
+    	"bLengthChange": false,
+        "info":     	false,
+        "pageLength": 7
+	});
+	$('.dataTables_filter').parent().siblings().remove();
+	$('.dataTables_filter').parent().removeClass("col-sm-12 col-md-6");
+	$('.dataTables_filter').parent().addClass("col-3");
 
 });
 
