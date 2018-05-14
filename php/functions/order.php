@@ -48,7 +48,7 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 			$order_result = $db->query($select_order);
 			$order = $order_result->fetch_assoc();
 
-			if (!$order) {
+			if (!$order_result) {
 				$order_id = 1;
 			} else {
 				$order_id = $order["order_id"] + 1; 
