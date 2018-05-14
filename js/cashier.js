@@ -65,19 +65,20 @@ function deleteItem(oid) {
 }
 
 
-function deductQuantity(oid) {
+function deductQuantity(orderId, menuId) {
 	var oaction = "deductQuantity";
-	console.log(oid);
+	console.log(orderId);
 	$.ajax({
 		type: "post",
 		url: "php/functions/order.php",
 		data: {
-			id:oid,
+			id:orderId,
 			action:oaction
 		},
 		datatype: "json",
 		success: function(data){
 			showOrderlist();
+			$("#btn-menu-"+menuId).removeAttr("disabled")
 		}
 	});
 }
@@ -180,8 +181,9 @@ function updateOrderList(array) {
 		minusSign.className = "fa fa-minus";
 		minusBtn.appendChild(minusSign);
 		minusBtn.setAttribute("data-id", array[i].table_order_id);
+		minusBtn.setAttribute("data-menuid", array[i].menu_id);
 		minusBtn.onclick = function() {
-			deductQuantity($(this).data('id'));
+			deductQuantity($(this).data('id'), $(this).data('menuid'));
 		};
 		tdQuan.appendChild(minusBtn);
 
