@@ -159,5 +159,25 @@
 			}
 
 		}
+
+		public static function checkName($name) {
+
+			$db = getDb();
+
+			$select_query = "SELECT menu_id FROM menu_table WHERE menu_name = '$name';";
+
+			$result = mysqli_query($db, $select_query);
+
+			mysqli_close($db);
+
+			if ($result->num_rows <= 0) return false;
+
+			if (!$result)
+				return '0';
+
+			$row = mysqli_fetch_array($result);
+			return $row["menu_id"];
+
+		}
 	}
 ?>

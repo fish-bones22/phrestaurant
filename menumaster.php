@@ -44,7 +44,7 @@ if (isset($_REQUEST["id"]))
 					<input type="hidden" name="menu_id" value="<?php echo $menu->id ?>" />
 					<div class="form-group">
 						<label for="menu-name">Menu Name</label>
-						<input type="text" id="menu-name" name="menu_name" value="<?php echo $menu->name ?>" class="form-control" required/>
+						<input onchange="checkUsername()" type="text" id="menu-name" name="menu_name" value="<?php echo $menu->name ?>" class="form-control" required/>
 					</div>
 
 					<div class="form-group">
@@ -89,9 +89,13 @@ if (isset($_REQUEST["id"]))
 						</div>
 					</div>
 
+					<div class="form-group">
+						<div class="text-danger" id="warning-message"></div>
+					</div>
+
 					<div class="btn-group float-right">
 						<button type="reset" id="menu-price" name="menu_price" class="btn btn-secondary mr-2">Reset</button>
-						<input type="submit" value="Save" class="btn btn-primary" />
+						<input id="save-button" type="submit" value="Save" class="btn btn-primary" />
 					</div>
 
 				</form>
@@ -103,5 +107,6 @@ if (isset($_REQUEST["id"]))
 	<script src="vendors/bootstrap/js/popper.min.js"></script>
 	<script src="vendors/bootstrap/js/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/menumaster.js"></script>
 </body>
 </html>

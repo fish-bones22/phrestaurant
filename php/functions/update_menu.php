@@ -28,6 +28,12 @@ $result = false;
 
 if ($isUpdating) {
 
+	$res = Product::checkName($name);
+	if ($res != $menuId && $res != 0) {
+		header("Location:../../menumaster.php?id=$menuId&err");
+		exit();
+	}
+
 	$product = Product::getMenu($menuId);
 	$product->name = $name;
 	$product->category = $category;
@@ -37,6 +43,12 @@ if ($isUpdating) {
 	$result = $product->updateProduct();
 } 
 else {
+
+	$res = Product::checkName($name);
+	if ($res != 0) {
+		header("Location:../../menumaster.php?err");
+		exit();
+	}
 
 	$product = new Product();
 	$product->name = $name;
