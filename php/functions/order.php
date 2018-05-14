@@ -210,20 +210,31 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 		
 		$uid = $id;
 
-		$select_query = "SELECT * FROM order_table";
+		$select_query = "SELECT * FROM order_table
+		INNER JOIN menu_table ON order_table.menu_id = menu_table.menu_id";
+
+		$select_user = "SELECT * FROM user_table WHERE user_id = '".$uid."'";
 
 		$db = getDb();
+
+		$user_result = $db->query($user_result);
+		$user = $user_result->fetch_assoc();
+		$userName = $user["user_first_name"]." ".$user["$user_last_name"];
 
 		$result = $db->query($select_query);
 
 		while ($row = $result->fetch_assoc()) {
 			$add_query = "INSERT INTO transaction_table (user_id,
+														 user_Name,
 														 order_id,
-														 menu_id)
+														 menu_id,
+														 menu_Name)
 														 VALUES
 														 ('".$uid."',
+														 '".$userName."',
 														 '".$row["order_id"]."',
-														 '".$row["menu_id"]."')";
+														 '".$row["menu_id"]."'),
+														 '".$row["menu_name"]."'";
 
 			$add_result = $db->query($add_query);
 
