@@ -14,10 +14,14 @@ include_once 'alert.php';
 	<?php include_once 'navbar.php'; ?>
 	<div class="container">
 		<div class="row">
+			<div class="col-md-7 offset-md-3">
+				<div class="display-4">Enter your credentials</div>
+			</div>
+		</div>
+		<div class="row">
 			<div class="col-md-6 offset-md-3">
 				<form action="php/functions/get_log_status.php" method="post">
 					<div class="form-group">
-						<div class="display-4">Enter your credentials</div>
 						<div class="lead">To Log In or Log Out</div>
 					</div>
 					<?php 
