@@ -51,7 +51,7 @@ $categories = Category::getCategories();
 						<tr>
 							<td>
 								<input type="hidden" name="categoryId[<?php echo $i ?>]" value="<?php echo $category->id ?>">
-								<input class="form-control form-control-sm" type="text" value="<?php echo $category->name ?>"  name="categoryName[<?php echo $i ?>]" />
+								<input onkeyup=checkName(this)" class="form-control form-control-sm category-field" type="text" value="<?php echo $category->name ?>"  name="categoryName[<?php echo $i ?>]" />
 							</td>
 							<td>
 								<button type="button" onclick="deleteCategory(<?php echo $category->id ?>)" data-toggle="modal" data-target="#confirm-modal" class="btn close">&times</button>
@@ -65,18 +65,21 @@ $categories = Category::getCategories();
 						</tbody>
 						<tfoot>
 							<tr class="new-category" hidden>
-								<td><input type="text" class="form-control form-control-sm" name="new_category"></td>
+								<td><input type="text" onkeyup="checkName(this)" class="form-control form-control-sm" name="new_category"></td>
 								<td><button type="button" onclick="hideNewCategory()" class="btn close">&times</button></td>
 							</tr>
 							<tr>
 								<td colspan="2"><button onclick="showNewCategory()" type="button" class="btn btn-block btn-light">+ New Category</button></td>
+							</tr>
+							<tr>
+								<td colspan="2" class="text-danger" id="warning-disp"></td>
 							</tr>
 						</tfoot>
 					</table>
 
 					<div class="btn-group float-right">
 						<button type="reset" id="menu-price" name="menu_price" class="btn btn-secondary mr-2">Reset</button>
-						<input type="submit" value="Save" class="btn btn-primary" />
+						<input id="submit-btn" type="submit" value="Save" class="btn btn-primary" />
 					</div>
 
 				</div>

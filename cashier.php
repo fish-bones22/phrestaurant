@@ -65,7 +65,11 @@ $menu = Product::getAllMenu();
 						} // end foreach
 					} // end if
 					?>
-						<tfoot><tr><td colspan="4"><a href="transaction.php">Transaction history</a></tr></tfoot>
+						<tfoot>
+							<tr>
+								<td colspan="4"><a href="transaction.php">Transaction history</a></td>
+							</tr>
+						</tfoot>
 					</tbody>
 				</table>
 			</div>
