@@ -33,7 +33,7 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 
 		// Check if menu is already in orders
 		$select_query = "SELECT * FROM order_table WHERE menu_id = '$id'";
-		$select_result = $db->query($select_query);
+		$select_result = mysqli_query($db, $select_query);
 
 		// Get Menu details
 		$select_query = "SELECT * FROM menu_table WHERE menu_id = '$id'";
@@ -42,6 +42,7 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 		
 		// If newly added
 		if ($select_result->num_rows <= 0) {
+
 
 			// Get new Order ID
 			$select_order = "SELECT * FROM transaction_table ORDER BY order_id DESC";
@@ -78,7 +79,7 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 			}
 		}
 
-		$db->close();
+		mysqli_close($db);
 		echo json_encode($result);
 	}
 

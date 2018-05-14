@@ -25,6 +25,7 @@ function orderButtonSelected(self) {
 
 function buttonSelected(self) {
 
+	disableAllMenu();
 	orderButtonSelected(self);
 
 }
@@ -125,6 +126,14 @@ function enableAllMenu() {
 	$(".item_menu").each(function() {
 		if ($(this).data('quantity') > 0)
 			$(this).removeAttr("disabled");
+	});
+
+}
+
+function disableAllMenu() {
+
+	$(".item_menu").each(function() {
+		$(this).attr("disabled", "");
 	});
 
 }
