@@ -10,4 +10,5 @@ $(document).ready(function() {
 	});
 
 	table.column(0).visible(false);
+	table.column(1).visible(false);
 });
