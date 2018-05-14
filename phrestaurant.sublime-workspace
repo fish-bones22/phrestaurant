@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"fun",
+				"function\t? "
+			],
+			[
+				"attr",
+				"attr(string, string)"
+			],
+			[
 				"text-a",
 				"text-align\tproperty"
 			],
@@ -432,10 +440,6 @@
 				"conn"
 			],
 			[
-				"fun",
-				"fun\tfunction …"
-			],
-			[
 				"spr",
 				"spritePaddle"
 			],
@@ -510,47 +514,34 @@
 			[
 				"sprit",
 				"spriteBall"
-			],
-			[
-				"bric",
-				"brickPrefabs"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "css/main.css",
+			"file": "cashier.php",
 			"settings":
 			{
-				"buffer_size": 2036,
+				"buffer_size": 4161,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "js/cashier.js",
+			"file": "js/categories.js",
 			"settings":
 			{
-				"buffer_size": 8230,
+				"buffer_size": 1078,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "index.php",
+			"file": "categories.php",
 			"settings":
 			{
-				"buffer_size": 1455,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "css/index.css",
-			"settings":
-			{
-				"buffer_size": 243,
+				"buffer_size": 3687,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -601,15 +592,26 @@
 	"expanded_folders":
 	[
 		"/C/xampp/htdocs/phrestaurant",
-		"/C/xampp/htdocs/phrestaurant/js"
+		"/C/xampp/htdocs/phrestaurant/js",
+		"/C/xampp/htdocs/phrestaurant/php",
+		"/C/xampp/htdocs/phrestaurant/php/functions"
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/phrestaurant/js/transaction.js",
-		"/C/xampp/htdocs/phrestaurant/cashier.php",
-		"/C/xampp/htdocs/phrestaurant/php/functions/order.php",
 		"/C/xampp/htdocs/phrestaurant/js/cashier.js",
+		"/C/xampp/htdocs/phrestaurant/php/functions/order.php",
+		"/C/xampp/htdocs/phrestaurant/php/objects/Product.php",
+		"/C/xampp/htdocs/phrestaurant/php/functions/update_menu.php",
+		"/C/xampp/htdocs/phrestaurant/menumaster.php",
+		"/C/xampp/htdocs/phrestaurant/menulist.php",
 		"/C/xampp/htdocs/phrestaurant/transaction.php",
+		"/C/xampp/htdocs/phrestaurant/php/objects/Transaction.php",
+		"/C/xampp/htdocs/phrestaurant/css/main.css",
+		"/C/xampp/htdocs/phrestaurant/js/transaction.js",
+		"/C/xampp/htdocs/phrestaurant/logtime_verify.php",
+		"/C/xampp/htdocs/phrestaurant/index.php",
+		"/C/xampp/htdocs/phrestaurant/css/index.css",
+		"/C/xampp/htdocs/phrestaurant/cashier.php",
 		"/C/xampp/htdocs/phrestaurant/js/loghistory.js",
 		"/C/xampp/htdocs/phrestaurant/navbar.php",
 		"/C/xampp/htdocs/phrestaurant/js/categories.js",
@@ -618,20 +620,14 @@
 		"/C/xampp/htdocs/phrestaurant/users.php",
 		"/C/xampp/htdocs/phrestaurant/js/users.js",
 		"/C/xampp/htdocs/phrestaurant/js/menulist.js",
-		"/C/xampp/htdocs/phrestaurant/menulist.php",
-		"/C/xampp/htdocs/phrestaurant/php/objects/Product.php",
 		"/C/xampp/htdocs/phrestaurant/sql/resto_db.sql",
-		"/C/xampp/htdocs/phrestaurant/index.php",
 		"/C/xampp/htdocs/landslide/css/style.css",
-		"/C/xampp/htdocs/phrestaurant/css/main.css",
 		"/C/xampp/htdocs/phrestaurant/loghistory.php",
 		"/C/xampp/htdocs/phrestaurant/php/objects/Log.php",
 		"/C/xampp/htdocs/phrestaurant/php/objects/User.php",
 		"/C/xampp/htdocs/phrestaurant/logtime.php",
-		"/C/xampp/htdocs/phrestaurant/logtime_verify.php",
 		"/C/xampp/htdocs/phrestaurant/vendors/datatables/js/datatables.min.js",
 		"/C/xampp/htdocs/phrestaurant/vendors/datatables/css/datatables.min.css",
-		"/C/xampp/htdocs/phrestaurant/menumaster.php",
 		"/C/xampp/htdocs/phrestaurant/php/functions/update_categories.php",
 		"/C/xampp/htdocs/phrestaurant/php/functions/log_time.php",
 		"/C/xampp/htdocs/phrestaurant/usermaster.php",
@@ -648,7 +644,6 @@
 		"/C/xampp/htdocs/phrestaurant/php/functions/delete_user.php",
 		"/C/xampp/htdocs/phrestaurant/php/objects/Category.php",
 		"/C/xampp/htdocs/phrestaurant/php/functions/delete_category.php",
-		"/C/xampp/htdocs/phrestaurant/php/functions/update_menu.php",
 		"/C/xampp/htdocs/phrestaurant/.git/config",
 		"/C/Users/Sammy/Downloads/resto/resto/php/objUser.php",
 		"/C/Users/Sammy/Downloads/resto/resto_db (1).sql",
@@ -730,9 +725,7 @@
 		"/C/Users/Sammy/Downloads/SingleCycle-MIPS-Processor-master/async_memory.v",
 		"/C/Users/Sammy/Desktop/sincyc/sincyc.sv",
 		"/C/Users/Sammy/Downloads/SingleCycle-MIPS-Processor-master/test/data_ram0.memh",
-		"/C/Users/Sammy/Desktop/SingleCycle-MIPS-Processor-master/test/data_ram3.memh",
-		"/C/Users/Sammy/Desktop/SingleCycle-MIPS-Processor-master/test/data_ram2.memh",
-		"/C/Users/Sammy/Desktop/SingleCycle-MIPS-Processor-master/test/data_ram1.memh"
+		"/C/Users/Sammy/Desktop/SingleCycle-MIPS-Processor-master/test/data_ram3.memh"
 	],
 	"find":
 	{
@@ -751,6 +744,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"$menuId",
+			"menuId",
+			"checkQuantity",
+			"deductQ",
 			"log",
 			"quantityCheck",
 			"center",
@@ -779,32 +776,33 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "css/main.css",
+					"file": "cashier.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2036,
+						"buffer_size": 4161,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								43,
-								58
+								2049,
+								2049
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax"
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1016.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -812,87 +810,59 @@
 				},
 				{
 					"buffer": 1,
-					"file": "js/cashier.js",
+					"file": "js/categories.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8230,
+						"buffer_size": 1078,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								523,
-								531
+								1033,
+								1033
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 422.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "index.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1455,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								448,
-								451
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 570.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "css/index.css",
+					"buffer": 2,
+					"file": "categories.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 243,
+						"buffer_size": 3687,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								147,
-								147
+								1932,
+								1932
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax"
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1100.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -900,7 +870,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 35.0
+		"height": 30.0
 	},
 	"input":
 	{
@@ -937,7 +907,7 @@
 	"project": "phrestaurant.sublime-project",
 	"replace":
 	{
-		"height": 66.0
+		"height": 56.0
 	},
 	"save_all_on_build": true,
 	"select_file":

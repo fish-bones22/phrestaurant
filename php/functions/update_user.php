@@ -23,6 +23,14 @@ if ($username == "") {
 
 if ($isUpdating) {
 
+	$res = User::checkUsername($username);
+
+	if ($res != $id && $res != 0) {
+		header("Location:../../usermaster.php?id=$id&err");
+		exit();
+	}
+
+
 	$user = User::getUser($id);
 	$user->username = $username;
 	$user->password = $password;
@@ -33,6 +41,12 @@ if ($isUpdating) {
 	$user->updateUser();
 } 
 else {
+
+	$res = User::checkUsername($username);
+	if ($res != 0) {
+		header("Location:../../usermaster.php?err");
+		exit();
+	}
 
 	$user = new user();
 	$user->username = $username;

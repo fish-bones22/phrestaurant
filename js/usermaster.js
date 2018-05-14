@@ -1,3 +1,5 @@
+var hasSameUsername = false;
+
 function checkUsername() {
 
 	username = $("#username").val();
@@ -11,6 +13,7 @@ function checkUsername() {
 			if (data == 'null') {
 				enableSaveButton();
 			} else {
+				hasSameUsername = true;
 				disableSaveButton("Username is already used.");
 				$("#username").focus();
 				$("#username").select();
@@ -26,7 +29,8 @@ function checkPasswordMatched() {
 		if ($("#confirm-password").val() != "")
 			disableSaveButton("Passwords do not match.");
 	} else {
-		enableSaveButton();
+		if (!hasSameUsername)
+			enableSaveButton();
 	}
 
 }
@@ -40,7 +44,7 @@ function enableSaveButton() {
 
 function disableSaveButton(errorMessage) {
 
-	$("#save-button").removeAttr("disabled");
+	$("#save-button").attr("disabled", "");
 	$("#warning-message").text(errorMessage);
 		
 }
