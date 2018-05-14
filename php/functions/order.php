@@ -11,7 +11,7 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 	}
 
 	if ($action == "addUpdate") {
-		addUpdateOrder($_REQUEST['id']);
+		addUpdateOrder();
 	} elseif ($action == "deleteItem") {
 		deleteOneOrder();
 	} elseif ($action == "showOrder") {
@@ -24,21 +24,28 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 		deductQuantity();
 	}
 
-	function addUpdateOrder($menuId) {
+	function addUpdateOrder() {
 
 		$id = $_REQUEST['id'];
-
-		$select_query = "SELECT * FROM order_table WHERE menu_id = '".$id."'";
+		$result = false;
 
 		$db = getDb();
 
+		// Check if menu is already in orders
+		$select_query = "SELECT * FROM order_table WHERE menu_id = '$id'";
 		$select_result = $db->query($select_query);
 
+		// Get Menu details
+		$select_query = "SELECT * FROM menu_table WHERE menu_id = '$id'";
+		$select_menu_result = $db->query($select_query);
+		$availableQty = $select_menu_result->fetch_assoc()['menu_quantity'];
+		
+		// If newly added
 		if ($select_result->num_rows <= 0) {
+
+			// Get new Order ID
 			$select_order = "SELECT * FROM transaction_table ORDER BY order_id DESC";
-
 			$order_result = $db->query($select_order);
-
 			$order = $order_result->fetch_assoc();
 
 			if (!$order) {
@@ -47,49 +54,40 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 				$order_id = $order["order_id"] + 1; 
 			}
 
-			$select_query = "SELECT * FROM menu_table WHERE menu_id = '".$id."'";
+			if ($availableQty >= 1) {
 
-			$select_result = $db->query($select_query);
+				$add_query = "INSERT INTO order_table (order_id, menu_id, order_quantity)
+				VALUES ('$order_id', '$id', '1')";
 
-			$row = $select_result->fetch_assoc();
+				$result = $db->query($add_query);
 
-			$add_query = "INSERT INTO order_table (order_id,
-												   menu_id,
-												   order_quantity)
-												   VALUES ('".$order_id."',
-												   		   '".$row["menu_id"]."',
-												   		   '1')";
-
-			$result = $db->query($add_query);
-
-			$db->close();
-
-			if (!$result) return faslse;
+			}
 
 		} else {
-			$quantity_order = $select_result->fetch_assoc();
 
-			$quantity = $quantity_order["order_quantity"] + 1;
+			$currentQuantity = $select_result->fetch_assoc()["order_quantity"];
+			$quantity = $currentQuantity + 1;
 
-			$update_query = "UPDATE order_table SET 
-							 order_quantity = '".$quantity."'
-							 WHERE menu_id = '".$id."'";
+			if ($availableQty >= $quantity) {
 
-			$result = $db->query($update_query);
+				$update_query = "UPDATE order_table SET order_quantity = '$quantity'
+				WHERE menu_id = '$id'";
 
-			$db->close();
+				$result = $db->query($update_query);
 
-			if (!$result) return false;
+			}
 		}
 
+		$db->close();
 		echo json_encode($result);
 	}
 
+
 	function deleteOneOrder() {
 		
-		$id = $_REQUEST['id'];
+		$orderid = $_REQUEST['orderid'];
 
-		$delete_query = "DELETE FROM order_table WHERE table_order_id = '".$id."'";
+		$delete_query = "DELETE FROM order_table WHERE table_order_id = '$orderid'";
 
 		$db = getDb();
 
@@ -100,34 +98,40 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 		if (!$result) return false;
 	}
 
+
 	function deductQuantity() {
 		
-		$id = $_REQUEST['id'];
+		$id = $_REQUEST['orderid'];
 
-		$select_query = "SELECT order_quantity FROM order_table WHERE table_order_id = '".$id."'";
+		$select_query = "SELECT order_quantity FROM order_table WHERE table_order_id = '$id'";
 
-		$delete_query = "UPDATE order_table SET order_quantity = order_quantity-1 WHERE table_order_id = '".$id."' AND order_quantity > 0";
+		$delete_query = "UPDATE order_table SET order_quantity=order_quantity-1 WHERE table_order_id = '$id' AND order_quantity>0";
 
 		$db = getDb();
 
 		$result = $db->query($select_query);
 
 		if ($result) {
-			while ($row = $result->fetch_assoc()) {
-				if ($row['order_quantity'] == 1) {
-					deleteOneOrder();
-					$db->close();
-					return;
-				}
-				break;
+
+			$row = $result->fetch_assoc();
+
+			if ($row['order_quantity'] == 1) {
+				
+				deleteOneOrder();
+
+			} else {
+
+				$result = $db->query($delete_query);
+
 			}
-		} 
 
-		$result = $db->query($delete_query);
+			$db->close();
+			echo json_encode(true);
+			return;
+		}
 
+		echo json_encode(false);
 		$db->close();
-
-		if (!$result) return false;
 	}
 
 	function showOrderList() {
@@ -151,6 +155,7 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 	}
 
 	function checkOutLogin() {
+
 		if (isset($_REQUEST['user'])) {
 		$user = $_REQUEST['user'];
 		}
@@ -201,6 +206,7 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 	}
 
 	function checkOutOrder($id) {
+		
 		$uid = $id;
 
 		$select_query = "SELECT * FROM order_table";

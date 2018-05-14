@@ -28,6 +28,7 @@ $transactions = Transaction::getAllTransaction();
 							<th>Trans</th>
 							<th>Cashier</th>
 							<th>Menu</th>
+							<th>Price</th>
 							<th>Date</th>
 						</tr>
 					</thead>
@@ -40,8 +41,9 @@ $transactions = Transaction::getAllTransaction();
 							<tr>
 								<td><?php echo $transaction->transactionId ?></td>
 								<td>Trans #<?php echo $transaction->orderId ?></td>
-								<td><?php echo $transaction->userName ?></td>
-								<td><?php echo $transaction->menuName ?></td>
+								<td><?php echo $transaction->userName == "" ? "[Deleted]" : $transaction->userName ?></td>
+								<td><?php echo $transaction->menuName == "" ? "[Deleted]" : $transaction->menuName ?></td>
+								<td><?php echo $transaction->price == "" ? "-" : $transaction->price ?></td>
 								<td><?php echo $transaction->formattedDate ?></td>
 							</tr>
 						<?php

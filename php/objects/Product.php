@@ -36,7 +36,6 @@
 			if ($this->name == null || $this->name == "") return false;
 			if ($this->price == null || $this->price == "") return false;
 			if ($this->quantity == null || $this->quantity == "") return false;
-			if ($this->category == null || $this->category == "") return false;
 
 			$db = getDb();
 
@@ -70,7 +69,6 @@
 			if ($this->name == null || $this->name == "") 			return false;
 			if ($this->price == null || $this->price == "") 		return false;
 			if ($this->quantity == null) 							return false;
-			if ($this->category == null || $this->category == "") 	return false;
 
 			$db = getDb();
 
@@ -116,7 +114,7 @@
 			$db = getDb();
 
 			$select_query = "SELECT * FROM menu_table 
-			INNER JOIN category_table ON menu_table.category_id = category_table.category_id
+			LEFT JOIN category_table ON menu_table.category_id = category_table.category_id
 			ORDER BY menu_table.category_id";
 
 			$result = mysqli_query($db, $select_query);
@@ -145,7 +143,7 @@
 			$db = getDb();
 
 			$select_query = "SELECT * FROM menu_table
-			INNER JOIN category_table ON menu_table.category_id = category_table.category_id
+			LEFT JOIN category_table ON menu_table.category_id = category_table.category_id
 			WHERE menu_id = '$id';";
 
 			$result = mysqli_query($db, $select_query);

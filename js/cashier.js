@@ -3,8 +3,10 @@ var selectedMenu;
 var isQtyReset = true;
 
 function orderButtonSelected(self) {
+
 	var oid = $(self).data("id");
 	var oaction = "addUpdate";
+
 	$.ajax({
 		type: "post",	
 		url: "php/functions/order.php",
@@ -21,40 +23,21 @@ function orderButtonSelected(self) {
 }
 
 
-function checkQuantity(id) {
-
-	var availQty = $("#avail-qty-menu-" + id).val();
-	var qty = $("#qty-menu-" + id).val();
-	
-	if (qty === undefined) {
-		return;
-	}
-
-	if (availQty - qty <= 1) {
-		$("#btn-menu-"+id).attr('disabled', '');
-	} else {
-		$("#btn-menu-"+id).removeAttr('disabled');
-	}
-
-	$("#avail-qty-disp-"+id).text(availQty-qty);
-
-}
-
-
 function buttonSelected(self) {
+
 	orderButtonSelected(self);
-	 checkQuantity($(self).data('id'));
+
 }
 
 
 function deleteItem(oid) {
 	var oaction = "deleteItem";
-	console.log(oid);
+
 	$.ajax({
 		type: "post",
 		url: "php/functions/order.php",
 		data: {
-			id:oid,
+			orderid:oid,
 			action:oaction
 		},
 		datatype: "json",
@@ -66,31 +49,30 @@ function deleteItem(oid) {
 
 
 function deductQuantity(orderId, menuId) {
+
 	var oaction = "deductQuantity";
-	console.log(orderId);
+
 	$.ajax({
 		type: "post",
 		url: "php/functions/order.php",
 		data: {
-			id:orderId,
+			orderid:orderId,
 			action:oaction
 		},
 		datatype: "json",
 		success: function(data){
 			showOrderlist();
-			$("#btn-menu-"+menuId).removeAttr("disabled")
 		}
 	});
 }
 
 
 function checkOutLog() {
+
 	var oaction = "checkOutLogin";
-	//document.getElementById("uniqueID").value;
 	var username = document.getElementById("checkUsername").value;
-	//alert(username);//$("#checkUsername").val();
-	var password = document.getElementById("checkPassword").value;//$("#checkPassword").val();
-	//alert(password);
+	var password = document.getElementById("checkPassword").value;
+
 	$.ajax({
 		type: "post",
 		url: "php/functions/order.php",
@@ -101,13 +83,14 @@ function checkOutLog() {
 		},
 		datatype: "text",
 		success: function(data){
-			console.log(data);
+
 			if (data.trim() != '') {
 				createPdf(data);
 				window.location = "cashier.php";
 			} else {
 				$("#verify-failed").removeAttr("hidden");
 			}
+
 		}
 	});
 }
@@ -129,10 +112,29 @@ function showOrderlist() {
 }
 
 
+function resetQuantity() {
+
+	$(".qty-disp").each(function() {
+		$(this).text($(this).data('original'));
+	});
+
+}
+
+function enableAllMenu() {
+
+	$(".item_menu").each(function() {
+		if ($(this).data('quantity') > 0)
+			$(this).removeAttr("disabled");
+	});
+
+}
+
+
 function updateOrderList(array) {
 	
 	$("#order-list").html("");
-
+	enableAllMenu();
+	
 	if (array.length <= 0) {
 		var tr = document.createElement("tr");
 		var td = document.createElement("td");
@@ -140,21 +142,24 @@ function updateOrderList(array) {
 		td.appendChild(document.createTextNode("Select Menu from the left."));
 		tr.appendChild(td);
 		$("#order-list").append(tr);
-		$(".avail-qty-disp").each(function() {
-			$(this).text($(this).data("original"));
-		});
 		$("#check-out-btn").attr("disabled", "");
+		// Set quantity to original
+		resetQuantity();
 		return;
 	}
 
 	selectedMenu = array;
-	
 	$("#check-out-btn").removeAttr("disabled")
 	var totalPr = 0;
 
 	for (var i = 0; i < array.length ; i++) {
 		
 		var tr = document.createElement("tr");
+		// Set quantity display of menu
+		var newQty = $("#qty-disp-"+array[i].menu_id).data("original") - array[i].order_quantity;
+		$("#qty-disp-"+array[i].menu_id).text(newQty);
+		if (newQty <= 0)
+			$("#item-menu-"+array[i].menu_id).attr("disabled", "");
 
 		// Create table data for menu name
 		var menuName = array[i].menu_name.length > 25 ? array[i].menu_name.substring(0, 22) + "..." : array[i].menu_name;
@@ -171,8 +176,6 @@ function updateOrderList(array) {
 		input.id = "qty-menu-" + array[i].menu_id;
 		input.value = array[i].order_quantity;
 		tdQuan.appendChild(input);
-		// Set text of available quantity display to correct amount
-		$("#avail-qty-disp-"+array[i].menu_id).text($("#avail-qty-menu-"+array[i].menu_id).val() - array[i].order_quantity);
 		// Create deduct quantity button
 		var minusBtn = document.createElement("btn");
 		minusBtn.type = "button";
@@ -212,10 +215,6 @@ function updateOrderList(array) {
 			var orderId = $(this).data('id');
 			var menuId = $(this).data('menuid');
 			deleteItem(orderId);
-
-			$("#btn-menu-"+menuId).removeAttr("disabled");
-			$("#avail-qty-disp-"+menuId).text($("#avail-qty-menu-"+menuId).val());
-
 		};
 		tdDelete.appendChild(btn);
 
@@ -229,23 +228,8 @@ function updateOrderList(array) {
 
 	if (isQtyReset) {
 		isQtyReset = false;
-		disableMenuByQty();
 	}
 }
-
-function disableMenuByQty() {
-
-	$(".item_menu").each(function() {
-		checkQuantity($(this).data('id'));
-	});
-
-}
-
-// function loadlink(){
-//     $('#orderBox').load('php/functions/order.php',function () {
-//          $(this).unwrap();
-//     });
-// }
 
 
 function createPdf(name) {

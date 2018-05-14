@@ -19,10 +19,12 @@ if ($name == "") {
 	exit();
 }
 
-if ($category == "" || $category == 0) {
-	header("Location:../../menumaster.php?err");
-	exit();
-}
+$result = false;
+
+// if ($category == "" || $category == 0) {
+// 	header("Location:../../menumaster.php?err");
+// 	exit();
+// }
 
 if ($isUpdating) {
 
@@ -32,7 +34,7 @@ if ($isUpdating) {
 	$product->price = $price;
 	$product->quantity = $quantity;
 
-	$product->updateProduct();
+	$result = $product->updateProduct();
 } 
 else {
 
@@ -42,12 +44,23 @@ else {
 	$product->price = $price;
 	$product->quantity = $quantity;
 
-	$product->addToDatabase();
-	header("Location:../../menulist.php?succ");
-	exit();
+	$result = $product->addToDatabase();
+
+	if ($result) {
+		header("Location:../../menulist.php?succ");
+		exit();
+	} else {
+		header("Location:../../menulist.php?err");
+		exit();
+	}
 }
 
-header("Location:../../menumaster.php?id=$menuId&succ");
-exit();
+if ($result) {
+	header("Location:../../menumaster.php?id=$menuId&succ");
+	exit();
+} else {
+	header("Location:../../menumaster.php?id=$menuId&err");
+	exit();
+}
 
  ?>
