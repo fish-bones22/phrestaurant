@@ -217,24 +217,28 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 
 		$db = getDb();
 
-		$user_result = $db->query($user_result);
+		$user_result = $db->query($select_user);
 		$user = $user_result->fetch_assoc();
-		$userName = $user["user_first_name"]." ".$user["$user_last_name"];
+		$userName = $user["user_first_name"]." ".$user["user_last_name"];
 
 		$result = $db->query($select_query);
 
 		while ($row = $result->fetch_assoc()) {
 			$add_query = "INSERT INTO transaction_table (user_id,
-														 user_Name,
+														 user_name,
 														 order_id,
 														 menu_id,
-														 menu_Name)
+														 menu_name,
+														 menu_quantity,
+														 menu_price_single)
 														 VALUES
 														 ('".$uid."',
 														 '".$userName."',
 														 '".$row["order_id"]."',
-														 '".$row["menu_id"]."'),
-														 '".$row["menu_name"]."'";
+														 '".$row["menu_id"]."',
+														 '".$row["menu_name"]."',
+														 '".$row["order_quantity"]."',
+														 '".$row["menu_price"]."')";
 
 			$add_result = $db->query($add_query);
 

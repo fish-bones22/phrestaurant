@@ -84,7 +84,7 @@ function checkOutLog() {
 		},
 		datatype: "text",
 		success: function(data){
-
+			
 			if (data.trim() != '') {
 				createPdf(data);
 				window.location = "cashier.php";

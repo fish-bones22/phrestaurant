@@ -520,28 +520,28 @@
 	"buffers":
 	[
 		{
-			"file": "cashier.php",
+			"file": "js/cashier.js",
 			"settings":
 			{
-				"buffer_size": 4161,
+				"buffer_size": 7800,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "js/categories.js",
+			"file": "php/constants.php",
 			"settings":
 			{
-				"buffer_size": 1078,
+				"buffer_size": 177,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "categories.php",
+			"file": "php/functions/order.php",
 			"settings":
 			{
-				"buffer_size": 3687,
+				"buffer_size": 5081,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -593,16 +593,27 @@
 	[
 		"/C/xampp/htdocs/phrestaurant",
 		"/C/xampp/htdocs/phrestaurant/js",
-		"/C/xampp/htdocs/phrestaurant/php",
-		"/C/xampp/htdocs/phrestaurant/php/functions"
+		"/C/xampp/htdocs/phrestaurant/php"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/phrestaurant/php/functions/update_menu.php",
+		"/C/xampp/htdocs/phrestaurant/js/menumaster.js",
+		"/C/xampp/htdocs/phrestaurant/php/functions/update_user.php",
+		"/C/xampp/htdocs/phrestaurant/php/constants.php",
+		"/C/xampp/htdocs/phrestaurant/php/functions/get_menu_names.php",
+		"/C/xampp/htdocs/phrestaurant/php/objects/Product.php",
+		"/C/xampp/htdocs/phrestaurant/menumaster.php",
+		"/C/xampp/htdocs/phrestaurant/php/functions/get_username.php",
+		"/C/xampp/htdocs/phrestaurant/usermaster.php",
+		"/C/xampp/htdocs/phrestaurant/js/users.js",
+		"/C/xampp/htdocs/phrestaurant/js/usermaster.js",
+		"/C/xampp/htdocs/phrestaurant/php/objects/User.php",
+		"/C/xampp/htdocs/phrestaurant/cashier.php",
+		"/C/xampp/htdocs/phrestaurant/js/categories.js",
+		"/C/xampp/htdocs/phrestaurant/categories.php",
 		"/C/xampp/htdocs/phrestaurant/js/cashier.js",
 		"/C/xampp/htdocs/phrestaurant/php/functions/order.php",
-		"/C/xampp/htdocs/phrestaurant/php/objects/Product.php",
-		"/C/xampp/htdocs/phrestaurant/php/functions/update_menu.php",
-		"/C/xampp/htdocs/phrestaurant/menumaster.php",
 		"/C/xampp/htdocs/phrestaurant/menulist.php",
 		"/C/xampp/htdocs/phrestaurant/transaction.php",
 		"/C/xampp/htdocs/phrestaurant/php/objects/Transaction.php",
@@ -611,33 +622,24 @@
 		"/C/xampp/htdocs/phrestaurant/logtime_verify.php",
 		"/C/xampp/htdocs/phrestaurant/index.php",
 		"/C/xampp/htdocs/phrestaurant/css/index.css",
-		"/C/xampp/htdocs/phrestaurant/cashier.php",
 		"/C/xampp/htdocs/phrestaurant/js/loghistory.js",
 		"/C/xampp/htdocs/phrestaurant/navbar.php",
-		"/C/xampp/htdocs/phrestaurant/js/categories.js",
-		"/C/xampp/htdocs/phrestaurant/categories.php",
 		"/C/xampp/htdocs/phrestaurant/adminverify.php",
 		"/C/xampp/htdocs/phrestaurant/users.php",
-		"/C/xampp/htdocs/phrestaurant/js/users.js",
 		"/C/xampp/htdocs/phrestaurant/js/menulist.js",
 		"/C/xampp/htdocs/phrestaurant/sql/resto_db.sql",
 		"/C/xampp/htdocs/landslide/css/style.css",
 		"/C/xampp/htdocs/phrestaurant/loghistory.php",
 		"/C/xampp/htdocs/phrestaurant/php/objects/Log.php",
-		"/C/xampp/htdocs/phrestaurant/php/objects/User.php",
 		"/C/xampp/htdocs/phrestaurant/logtime.php",
 		"/C/xampp/htdocs/phrestaurant/vendors/datatables/js/datatables.min.js",
 		"/C/xampp/htdocs/phrestaurant/vendors/datatables/css/datatables.min.css",
 		"/C/xampp/htdocs/phrestaurant/php/functions/update_categories.php",
 		"/C/xampp/htdocs/phrestaurant/php/functions/log_time.php",
-		"/C/xampp/htdocs/phrestaurant/usermaster.php",
 		"/C/xampp/htdocs/phrestaurant/alert.php",
 		"/C/xampp/htdocs/phrestaurant/menu.php",
-		"/C/xampp/htdocs/phrestaurant/php/functions/update_user.php",
 		"/C/xampp/htdocs/phrestaurant/error.php",
 		"/C/xampp/htdocs/phrestaurant/php/functions/verify_admin.php",
-		"/C/xampp/htdocs/phrestaurant/js/usermaster.js",
-		"/C/xampp/htdocs/phrestaurant/php/functions/get_username.php",
 		"/C/xampp/htdocs/phrestaurant/php/functions/get_log_status.php",
 		"/C/xampp/htdocs/phrestaurant/adminauthentication.php",
 		"/C/xampp/htdocs/phrestaurant/php/functions/delete_menu.php",
@@ -654,7 +656,6 @@
 		"/C/xampp/htdocs/phrestaurant/php/object/User.php",
 		"/C/xampp/htdocs/landslide/php/objects/objCart.php",
 		"/C/xampp/htdocs/phrestaurant/logtime.html",
-		"/C/xampp/htdocs/phrestaurant/php/constants.php",
 		"/C/xampp/htdocs/landslide/about.php",
 		"/C/xampp/htdocs/phrestaurant/js/main.js",
 		"/C/xampp/htdocs/landslide/php/dbconnect.php",
@@ -723,13 +724,11 @@
 		"/C/Users/Sammy/Downloads/MIPS-master (3)/simulation/text_Test.dat",
 		"/C/Users/Sammy/Desktop/SingleCycle-MIPS-Processor-master/test/inst_rom.memh",
 		"/C/Users/Sammy/Downloads/SingleCycle-MIPS-Processor-master/async_memory.v",
-		"/C/Users/Sammy/Desktop/sincyc/sincyc.sv",
-		"/C/Users/Sammy/Downloads/SingleCycle-MIPS-Processor-master/test/data_ram0.memh",
-		"/C/Users/Sammy/Desktop/SingleCycle-MIPS-Processor-master/test/data_ram3.memh"
+		"/C/Users/Sammy/Desktop/sincyc/sincyc.sv"
 	],
 	"find":
 	{
-		"height": 70.0
+		"height": 30.0
 	},
 	"find_in_files":
 	{
@@ -776,81 +775,81 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "cashier.php",
+					"file": "js/cashier.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4161,
+						"buffer_size": 7800,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2049,
-								2049
+								2096,
+								2096
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1016.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "js/categories.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1078,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1033,
-								1033
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 570.0,
+						"translation.y": 2223.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "categories.php",
+					"buffer": 1,
+					"file": "php/constants.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3687,
+						"buffer_size": 177,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1932,
-								1932
+								168,
+								168
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "php/functions/order.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5081,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2037,
+								2043
 							]
 						],
 						"settings":
@@ -859,10 +858,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1100.0,
+						"translation.y": 134.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]

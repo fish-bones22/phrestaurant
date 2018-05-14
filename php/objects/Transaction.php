@@ -10,24 +10,27 @@ class Transaction {
 	public $menuId;
 	public $menuName;
 	public $price;
+	public $quantity;
 	public $timestamp;
 	public $formattedDate;
 
-	function setValues($transactionId, $userId, $orderId, $menuId, $price) {
+	function setValues($transactionId, $userId, $orderId, $menuId, $price, $quantity) {
 		$this->transactionId = $transactionId;
 		$this->userId = $userId;
 		$this->orderId = $orderId;
 		$this->menuId = $menuId;
 		$this->price = $price;
+		$this->quantity = $quantity;
 	}
 
 	function setValuesByArray($transaction_array) {
 		$this->transactionId = $transaction_array["transaction_id"];
 		$this->userId = $transaction_array["user_id"];
-		$this->userName = $transaction_array["user_first_name"]." ".$transaction_array["user_last_name"];
+		$this->userName = $transaction_array["user_name"];
 		$this->orderId = $transaction_array["order_id"];
 		$this->menuId = $transaction_array["menu_id"];
-		$this->price = $transaction_array["menu_price"];
+		$this->price = $transaction_array["menu_price_single"];
+		$this->quantity = $transaction_array["menu_quantity"];
 		$this->menuName = $transaction_array["menu_name"];
 		$this->timestamp = $transaction_array["transaction_timestamp"];
 		$this->formattedDate = $transaction_array["formatted_date"];
@@ -39,10 +42,7 @@ class Transaction {
 
 		$select_query = "SELECT *,
 		DATE_FORMAT(transaction_table.transaction_timestamp, '%b %d, %Y') as formatted_date 
-		FROM transaction_table
-		LEFT JOIN menu_table ON transaction_table.menu_id = menu_table.menu_id
-		LEFT JOIN user_table ON transaction_table.user_id = user_table.user_id
-		";
+		FROM transaction_table";
 
 		$result = $db->query($select_query);
 
