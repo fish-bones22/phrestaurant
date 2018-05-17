@@ -22,7 +22,7 @@ function getTotalSales() {
 	var dateTo = $("[name='date_to']").val();
 
 	if (dateFrom != '')
-		dateFrom = dateFrom;
+		dateFrom = dateFrom.addDays(0);
 
 	if (dateTo != '')
 		dateTo = dateTo.addDays(1);
@@ -44,15 +44,16 @@ function getTotalSales() {
 
 String.prototype.addDays = function(days) {
 	var str = this.valueOf();
-	var dateArr = str.split("/"),
-        m = dateArr[0],
-        d = dateArr[1],
-        y = dateArr[2],
-        temp = [];
-    temp.push(y,m,d);
+	// var dateArr = str.split("/"),
+ //        m = dateArr[0],
+ //        d = dateArr[1],
+ //        y = dateArr[2],
+ //        temp = [];
+ //    temp.push(y,m,d);
 
-    var date = (new Date(temp.join("-"))).addDays(days);
-
+    //var date = (new Date(temp.join("-"))).addDays(days);
+	var date = new Date(str).addDays(days);
+	console.log(date);
     return date.mmddyyyy();
 }
 

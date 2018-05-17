@@ -16,9 +16,11 @@ if ( (!isset($_REQUEST["token"]) || $token != $_REQUEST["token"])
 
 if (isset($_SESSION["hasalert"])) {
 	$querystring = $_SERVER['QUERY_STRING'];
+	$querystring = str_replace("&succ","",$querystring);
+	$querystring = str_replace("&err","",$querystring);
 	$querystring = str_replace("succ","",$querystring);
 	$querystring = str_replace("err","",$querystring);
-	header("Location:users.php?".$querystring);
+	header("Location:".basename(__FILE__)."?".$querystring);
 	session_unset($_SESSION["hasalert"]);
 }
 

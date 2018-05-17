@@ -64,7 +64,7 @@ $transactions = Transaction::getAllTransaction();
 							<label>From:</label>
 						</div>
 						<div class="col">
-							<input class="form-control ml-3" max="<?php echo date('Y-m-d') ?>" value="<?php echo date('Y-m-d') ?>" type="date" name="date_from" />
+							<input class="form-control ml-3" max="<?php echo date('Y-m-d') ?>" value="<?php echo date('Y-m-d') ?>" type="date" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" name="date_from" />
 						</div>
 					</div>
 					<div class="row">
