@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/functions/db_connect.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
@@ -41,6 +42,14 @@ if ($isUpdating) {
 	$product->quantity = $quantity;
 
 	$result = $product->updateProduct();
+
+	if ($result) {
+		header("Location:../../menumaster.php?id=$menuId&succ");
+		exit();
+	} else {
+		header("Location:../../menumaster.php?id=$menuId&err");
+		exit();
+	}
 } 
 else {
 
@@ -58,6 +67,7 @@ else {
 
 	$result = $product->addToDatabase();
 
+	session_unset($_SESSION["menu"]);
 	if ($result) {
 		header("Location:../../menulist.php?succ");
 		exit();
@@ -65,14 +75,6 @@ else {
 		header("Location:../../menulist.php?err");
 		exit();
 	}
-}
-
-if ($result) {
-	header("Location:../../menumaster.php?id=$menuId&succ");
-	exit();
-} else {
-	header("Location:../../menumaster.php?id=$menuId&err");
-	exit();
 }
 
  ?>

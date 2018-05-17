@@ -1,10 +1,32 @@
 <?php
+session_start();
 
 require_once $_SERVER["DOCUMENT_ROOT"].'/phrestaurant/php/objects/Product.php';
 include_once 'alert.php';
 
 // Get current menu information if it exists
 $menus = Product::getAllMenu();
+
+$token =  hash('ripemd160', date("YmdHi"));
+if ( (!isset($_REQUEST["token"]) || $token != $_REQUEST["token"]) 
+	&& !isset($_REQUEST["succ"]) && !isset($_REQUEST["err"])) {
+	header("Location:adminverify.php?id=$id&page=".basename(__FILE__, '.php'));
+	exit();
+}
+
+if (isset($_SESSION["hasalert"])) {
+	$querystring = $_SERVER['QUERY_STRING'];
+	$querystring = str_replace("succ","",$querystring);
+	$querystring = str_replace("err","",$querystring);
+	header("Location:users.php?".$querystring);
+	session_unset($_SESSION["hasalert"]);
+}
+
+if (isset($_REQUEST["succ"]) || isset($_REQUEST["err"])) {
+	$_SESSION["hasalert"] = 1;
+}
+
+$_SESSION["menu"] = 1;
 
 ?>
 

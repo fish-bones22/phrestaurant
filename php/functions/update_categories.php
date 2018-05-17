@@ -11,9 +11,12 @@ if (isset($_REQUEST["categoryId"]) && isset($_REQUEST["categoryName"])) {
 	$i = 0;
 	for ($i = 0; $i < sizeof($categoryIds); $i++) {
 
-		$category = Category::getCategory($categoryIds[$i]);
-		$category->name = $categoryNames[$i];
-		$res = $category->updateCategory();
+		$res = false;
+		if (trim($categoryNames[$i], " ") != "") {	
+			$category = Category::getCategory($categoryIds[$i]);
+			$category->name = $categoryNames[$i];
+			$res = $category->updateCategory();
+		}
 
 		if (!$res)
 			header("Location:../../categories.php?err");
@@ -26,9 +29,12 @@ if (isset($_REQUEST["new_category"]) && $_REQUEST["new_category"] != "") {
 
 	$newCategory = $_REQUEST["new_category"];
 
-	$category = new Category();
-	$category->name = $newCategory;
-	$res = $category->addToDb();
+	$res = false;
+	if (trim($newCategory, " ") != "") {
+		$category = new Category();
+		$category->name = $newCategory;
+		$res = $category->addToDb();
+	}
 
 	if (!$res)
 		header("Location:../../categories.php?err");
