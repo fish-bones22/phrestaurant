@@ -18,16 +18,23 @@ if (isset($_REQUEST["categoryId"]) && isset($_REQUEST["categoryName"])) {
 			$res = $category->updateCategory();
 		}
 
-		if (!$res)
+		if (!$res) {
 			header("Location:../../categories.php?err");
+			exit();
+		}
 
 	}
 
 }
 
-if (isset($_REQUEST["new_category"]) && $_REQUEST["new_category"] != "") {
+if (isset($_REQUEST["new_category"])) {
 
 	$newCategory = $_REQUEST["new_category"];
+
+	if (empty($newCategory)) {
+		header("Location:../../categories.php?err");
+		exit();
+	}
 
 	$res = false;
 	if (trim($newCategory, " ") != "") {
@@ -36,8 +43,10 @@ if (isset($_REQUEST["new_category"]) && $_REQUEST["new_category"] != "") {
 		$res = $category->addToDb();
 	}
 
-	if (!$res)
+	if (!$res) {
 		header("Location:../../categories.php?err");
+		exit();
+	}
 
 }
 
