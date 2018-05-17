@@ -8,9 +8,22 @@ include_once 'alert.php';
 $users = User::getAllUsers();
 
 $token =  hash('ripemd160', date("YmdHi"));
-if (!isset($_REQUEST["token"]) || $token != $_REQUEST["token"]) {
+if ((!isset($_REQUEST["token"]) || $token != $_REQUEST["token"])
+	&& !isset($_REQUEST["succ"]) && !isset($_REQUEST["err"])) {
 	header("Location:adminverify.php?page=".basename(__FILE__, '.php'));
 	exit();
+}
+
+if (isset($_SESSION["hasalert"])) {
+	$querystring = $_SERVER['QUERY_STRING'];
+	$querystring = str_replace("succ","",$querystring);
+	$querystring = str_replace("err","",$querystring);
+	header("Location:users.php?".$querystring);
+	session_unset($_SESSION["hasalert"]);
+}
+
+if (isset($_REQUEST["succ"]) || isset($_REQUEST["err"])) {
+	$_SESSION["hasalert"] = 1;
 }
 
 $_SESSION["user"] = 1;

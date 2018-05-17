@@ -19,7 +19,7 @@ $transactions = Transaction::getAllTransaction();
 	<?php include_once 'navbar.php'; ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8 offset-md-2">
+			<div class="col-lg-8">
 				<div class="h2">Transactions</div>
 				<table class="table table-sm" id="transaction-table">
 					<thead>
@@ -55,6 +55,32 @@ $transactions = Transaction::getAllTransaction();
 					</tbody>
 				</table>
 			</div>
+
+			<div class="col-lg-4">
+				<div><span class="h5">Total Sales: </span><span id="total-sales" class="lead">0</span></div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-2">
+							<label>From:</label>
+						</div>
+						<div class="col">
+							<input class="form-control ml-3" max="<?php echo date('Y-m-d') ?>" value="<?php echo date('Y-m-d') ?>" type="date" name="date_from" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-2">
+							<label>To:</label>
+						</div>
+						<div class="col">
+							<input class="form-control ml-3" max="<?php echo date('Y-m-d') ?>" value="<?php echo date('Y-m-d') ?>" type="date" name="date_to" />
+						</div>
+					</div>
+					<div class="form-group mt-2">
+						<button class="btn btn-block btn-sm" onclick="getTotalSales()">Filter</button>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
 	<script src="vendors/jquery/jquery.min.js"></script>

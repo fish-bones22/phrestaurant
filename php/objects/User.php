@@ -109,7 +109,10 @@ class User
 
 		$db = getDb();
 
-		$select_query = "SELECT *, DATE_FORMAT(user_table.user_timestamp, '%b %d, %Y') as formatted_time FROM user_table WHERE user_name = '".$username."' AND user_password = '".$password."';";
+		$select_query = "SELECT *, DATE_FORMAT(user_table.user_timestamp, '%b %d, %Y') as formatted_time 
+			FROM user_table 
+			LEFT JOIN dtr_table ON user_table.user_id = dtr_table.user_id
+			WHERE user_name = '".$username."' AND user_password = '".$password."';";
 
 		$result = mysqli_query($db, $select_query);
 

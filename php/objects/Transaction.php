@@ -63,6 +63,35 @@ class Transaction {
 
 		return $transactions;
 	}
+
+
+	function getTransactionsBetween($from, $to) {
+
+		$db = getDb();
+
+		$select_query = "SELECT *,
+		DATE_FORMAT(transaction_timestamp, '%b %d, %Y') as formatted_date 
+		FROM transaction_table WHERE transaction_timestamp BETWEEN '$from' AND '$to'";
+
+		$result = $db->query($select_query);
+
+		$db->close();
+
+		if (!$result || $result->num_rows <= 0)
+			return null;
+
+		$transactions = [];
+
+		while ($row = mysqli_fetch_array($result)) {
+
+			$transac = new Transaction(); 
+			$transac->setValuesByArray($row);
+			$transactions[$transac->transactionId] = $transac;
+
+		}
+
+		return $transactions;
+	}
 }
 
 ?>

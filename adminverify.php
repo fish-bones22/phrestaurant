@@ -1,5 +1,6 @@
 <?php
 include_once 'alert.php';
+$querystring = $_SERVER['QUERY_STRING'];
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +29,7 @@ include_once 'alert.php';
 				?>
 				<form action="php/functions/verify_admin.php" method="post">
 					<input type="hidden" name="next_page" value="<?php echo $_REQUEST['page'] ?>" />
+					<input type="hidden" name="query_string" value="<?php echo $querystring ?>">
 					<div class="form-group">
 					</div>
 					<div class="form-group">

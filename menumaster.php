@@ -13,6 +13,16 @@ $menu = new Product();
 if (isset($_REQUEST["id"]))
 	$menu = Product::getMenu($_REQUEST["id"]);
 
+$id = isset($_REQUEST["id"]) ? $_REQUEST["id"] : 0;
+
+$token =  hash('ripemd160', date("YmdHi"));
+if ( (!isset($_REQUEST["token"]) || $token != $_REQUEST["token"]) 
+	&& !isset($_REQUEST["succ"]) && !isset($_REQUEST["err"])) {
+	header("Location:adminverify.php?id=$id&page=".basename(__FILE__, '.php'));
+	exit();
+}
+
+
 ?>
 
 <!DOCTYPE html>

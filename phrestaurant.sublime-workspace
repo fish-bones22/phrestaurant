@@ -520,28 +520,37 @@
 	"buffers":
 	[
 		{
-			"file": "js/cashier.js",
-			"settings":
-			{
-				"buffer_size": 7800,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "php/constants.php",
-			"settings":
-			{
-				"buffer_size": 177,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "php/functions/order.php",
 			"settings":
 			{
-				"buffer_size": 5081,
+				"buffer_size": 5647,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/cashier.js",
+			"settings":
+			{
+				"buffer_size": 7803,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "transaction.php",
+			"settings":
+			{
+				"buffer_size": 2190,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/objects/Transaction.php",
+			"settings":
+			{
+				"buffer_size": 1736,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -593,14 +602,18 @@
 	[
 		"/C/xampp/htdocs/phrestaurant",
 		"/C/xampp/htdocs/phrestaurant/js",
-		"/C/xampp/htdocs/phrestaurant/php"
+		"/C/xampp/htdocs/phrestaurant/php",
+		"/C/xampp/htdocs/phrestaurant/php/objects"
 	],
 	"file_history":
 	[
+		"/C/Users/Sammy/Downloads/resto_db.sql",
+		"/C/xampp/htdocs/phrestaurant/js/cashier.js",
+		"/C/xampp/htdocs/phrestaurant/php/functions/order.php",
+		"/C/xampp/htdocs/phrestaurant/php/constants.php",
 		"/C/xampp/htdocs/phrestaurant/php/functions/update_menu.php",
 		"/C/xampp/htdocs/phrestaurant/js/menumaster.js",
 		"/C/xampp/htdocs/phrestaurant/php/functions/update_user.php",
-		"/C/xampp/htdocs/phrestaurant/php/constants.php",
 		"/C/xampp/htdocs/phrestaurant/php/functions/get_menu_names.php",
 		"/C/xampp/htdocs/phrestaurant/php/objects/Product.php",
 		"/C/xampp/htdocs/phrestaurant/menumaster.php",
@@ -612,8 +625,6 @@
 		"/C/xampp/htdocs/phrestaurant/cashier.php",
 		"/C/xampp/htdocs/phrestaurant/js/categories.js",
 		"/C/xampp/htdocs/phrestaurant/categories.php",
-		"/C/xampp/htdocs/phrestaurant/js/cashier.js",
-		"/C/xampp/htdocs/phrestaurant/php/functions/order.php",
 		"/C/xampp/htdocs/phrestaurant/menulist.php",
 		"/C/xampp/htdocs/phrestaurant/transaction.php",
 		"/C/xampp/htdocs/phrestaurant/php/objects/Transaction.php",
@@ -723,8 +734,7 @@
 		"/C/Users/Sammy/Downloads/MIPS-master (3)/simulation/MIPs_TOP.vt",
 		"/C/Users/Sammy/Downloads/MIPS-master (3)/simulation/text_Test.dat",
 		"/C/Users/Sammy/Desktop/SingleCycle-MIPS-Processor-master/test/inst_rom.memh",
-		"/C/Users/Sammy/Downloads/SingleCycle-MIPS-Processor-master/async_memory.v",
-		"/C/Users/Sammy/Desktop/sincyc/sincyc.sv"
+		"/C/Users/Sammy/Downloads/SingleCycle-MIPS-Processor-master/async_memory.v"
 	],
 	"find":
 	{
@@ -775,81 +785,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "js/cashier.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7800,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2096,
-								2096
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2223.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "php/constants.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 177,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								168,
-								168
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "php/functions/order.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5081,
+						"buffer_size": 5647,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2037,
-								2043
+								5236,
+								5236
 							]
 						],
 						"settings":
@@ -858,10 +811,97 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 134.0,
+						"translation.y": 4351.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "js/cashier.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7803,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1327,
+								1327
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1368.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "transaction.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2190,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1608,
+								1608
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 342.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "php/objects/Transaction.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1736,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								944,
+								944
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 323.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
