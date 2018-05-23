@@ -19,6 +19,7 @@ if (isset($_REQUEST["id"]) && $_REQUEST["id"] != 0)
 	$menu = Product::getMenu($_REQUEST["id"]);
 
 $id = isset($_REQUEST["id"]) ? $_REQUEST["id"] : 0;
+$token = $_REQUEST["token"];
 
 ?>
 
@@ -49,6 +50,7 @@ $id = isset($_REQUEST["id"]) ? $_REQUEST["id"] : 0;
 
 				<form action="php/functions/update_menu.php" method="post">
 					<input type="hidden" name="menu_id" value="<?php echo $menu->id ?>" />
+					<input type="hidden" name="token" value="<?php echo $token ?>" />
 					<div class="form-group">
 						<label for="menu-name">Menu Name</label>
 						<input onchange="checkUsername()" type="text" id="menu-name" name="menu_name" value="<?php echo $menu->name ?>" class="form-control" required/>

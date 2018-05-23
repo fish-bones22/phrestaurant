@@ -78,7 +78,7 @@ $_SESSION["menu"] = 1;
 					<tr>
 						<td><?php echo $cat ?></td>
 						<td>
-							<a href="menumaster.php?id=<?php echo $menu->id ?>"><?php echo $menuName ?></a>
+							<a href="menumaster.php?id=<?php echo $menu->id ?>&token=<?php echo $token ?>"><?php echo $menuName ?></a>
 						</td>
 						<td>
 							<button type="button" onclick="deleteMenu(<?php echo $menu->id ?>)" data-toggle="modal" data-target="#confirm-modal" class="close">&times</button>
@@ -97,7 +97,7 @@ $_SESSION["menu"] = 1;
 					</tbody>
 					<tfoot>
 						<tr>
-							<td colspan="2"><a href="menumaster.php" class="btn btn-block btn-light">+ New Menu</a></td>
+							<td colspan="2"><a href="menumaster.php?token=<?php echo $token ?>" class="btn btn-block btn-light">+ New Menu</a></td>
 						</tr>
 					</tfoot>
 				</table>

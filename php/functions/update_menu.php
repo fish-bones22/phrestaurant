@@ -14,6 +14,7 @@ $name = $_REQUEST["menu_name"];
 $category = $_REQUEST["menu_category"];
 $price = $_REQUEST["menu_price"];
 $quantity = $_REQUEST["menu_quantity"];
+$token = $_REQUEST["token"];
 
 if ($name == "") {
 	header("Location:../../menumaster.php?err");
@@ -44,10 +45,10 @@ if ($isUpdating) {
 	$result = $product->updateProduct();
 
 	if ($result) {
-		header("Location:../../menumaster.php?id=$menuId&succ");
+		header("Location:../../menumaster.php?id=$menuId&token=$token&succ");
 		exit();
 	} else {
-		header("Location:../../menumaster.php?id=$menuId&err");
+		header("Location:../../menumaster.php?id=$menuId&token=$token&err");
 		exit();
 	}
 } 
@@ -55,7 +56,7 @@ else {
 
 	$res = Product::checkName($name);
 	if ($res != 0) {
-		header("Location:../../menumaster.php?err");
+		header("Location:../../menumaster.php?token=$token&err");
 		exit();
 	}
 
@@ -69,10 +70,10 @@ else {
 
 	session_unset($_SESSION["menu"]);
 	if ($result) {
-		header("Location:../../menulist.php?succ");
+		header("Location:../../menulist.php?token=$token&succ");
 		exit();
 	} else {
-		header("Location:../../menulist.php?err");
+		header("Location:../../menulist.php?token=$token&err");
 		exit();
 	}
 }
